@@ -10,6 +10,7 @@ const globusService = require('../services/globus.service');
 exports.sendPost = async (url, data, options) => {
     return axios.post(url, data, options)
         .then((response) => {
+            console.log(response);
             console.log(response.data);
             return response.data;
         })
