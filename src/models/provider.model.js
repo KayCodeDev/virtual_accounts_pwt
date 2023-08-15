@@ -27,10 +27,7 @@ const Provider = sequelize.define('Provider', {
     },
     credentials: {
         type: DataTypes.JSON,
-        get() {
-            const rawValue = this.getDataValue('credentials');
-            return rawValue ? JSON.parse(rawValue) : {};
-        }
+
     },
     status: {
         type: DataTypes.ENUM('active', 'inactive'),
