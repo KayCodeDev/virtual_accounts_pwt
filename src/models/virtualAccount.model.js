@@ -1,9 +1,9 @@
-const { Model, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require("./sequelize.config");
+const TransactionNotification = require('./transactionNotification.model');
 
-class VirtualAccount extends Model { }
+const VirtualAccount = sequelize.define('VirtualAccount', {
 
-VirtualAccount.init({
     uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
@@ -16,7 +16,6 @@ VirtualAccount.init({
     accountName: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
     },
     bvn: {
         type: DataTypes.STRING,
@@ -30,19 +29,24 @@ VirtualAccount.init({
         type: DataTypes.DOUBLE,
         defaultValue: 0.0,
     },
+    settlementAccount: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     tid: {
         type: DataTypes.STRING,
     },
+
     status: {
         type: DataTypes.ENUM('active', 'inactive'),
         defaultValue: "active"
     },
 }, {
-    sequelize,
-    modelName: 'VirtualAccount',
+    tableName: 'virtual_accounts',
     paranoid: true,
 })
 
-
+VirtualAccount.hasMany(TransactionNotification);
+TransactionNotification.belongsTo(VirtualAccount);
 
 module.exports = VirtualAccount;

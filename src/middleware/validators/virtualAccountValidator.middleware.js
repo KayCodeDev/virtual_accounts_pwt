@@ -1,121 +1,63 @@
 const { body } = require('express-validator');
-const Role = require('../../utils/userRoles.utils');
+const Provider = require('../../models/provider.model');
 
 
-exports.createVASchema = [
-    body('username')
+exports.addPosVARequest = [
+    body('provider')
         .exists()
-        .withMessage('username is required')
-        .isLength({ min: 3 })
-        .withMessage('Must be at least 3 chars long'),
-    body('first_name')
+        .withMessage('Provider is required')
+        .custom(async value => {
+            const provider = await Provider.findOne({ where: { code: value } });
+            if (!provider) {
+                throw new Error('Invalid provider');
+            }
+        }),
+    body('accountName')
         .exists()
-        .withMessage('Your first name is required')
-        .isAlpha()
-        .withMessage('Must be only alphabetical chars')
-        .isLength({ min: 3 })
-        .withMessage('Must be at least 3 chars long'),
-    body('last_name')
+        .withMessage('Account name is required'),
+    body('bvn')
         .exists()
-        .withMessage('Your last name is required')
-        .isAlpha()
-        .withMessage('Must be only alphabetical chars')
-        .isLength({ min: 3 })
-        .withMessage('Must be at least 3 chars long'),
-    body('email')
+        .withMessage('BVN is required')
+        .isLength({ min: 11, max: 11 })
+        .withMessage('BVN must be 11 character'),
+    body('phoneNumber')
         .exists()
-        .withMessage('Email is required')
-        .isEmail()
-        .withMessage('Must be a valid email')
-        .normalizeEmail(),
-    body('role')
+        .withMessage('Phone number is required')
+        .isMobilePhone()
+        .withMessage('Invalid phone number'),
+    body('tid')
+        .exists()
+        .withMessage('Terminal ID is required')
+        .isLength({ min: 8, max: 8 })
+        .withMessage('Invalid terminal ID'),
+    body('settlementAccount')
         .optional()
-        .isIn([Role.Admin, Role.SuperUser])
-        .withMessage('Invalid Role type'),
-    body('password')
-        .exists()
-        .withMessage('Password is required')
-        .notEmpty()
-        .isLength({ min: 6 })
-        .withMessage('Password must contain at least 6 characters')
-        .isLength({ max: 10 })
-        .withMessage('Password can contain max 10 characters'),
-    body('confirm_password')
-        .exists()
-        .custom((value, { req }) => value === req.body.password)
-        .withMessage('confirm_password field must have the same value as the password field'),
-    body('age')
-        .optional()
-        .isNumeric()
-        .withMessage('Must be a number')
+        .isLength({ min: 10, max: 10 })
+        .withMessage('Invalid settlement account'),
 ];
 
-exports.updateUserSchema = [
-    body('username')
-        .optional()
-        .isLength({ min: 3 })
-        .withMessage('Must be at least 3 chars long'),
-    body('first_name')
-        .optional()
-        .isAlpha()
-        .withMessage('Must be only alphabetical chars')
-        .isLength({ min: 3 })
-        .withMessage('Must be at least 3 chars long'),
-    body('last_name')
-        .optional()
-        .isAlpha()
-        .withMessage('Must be only alphabetical chars')
-        .isLength({ min: 3 })
-        .withMessage('Must be at least 3 chars long'),
-    body('email')
-        .optional()
-        .isEmail()
-        .withMessage('Must be a valid email')
-        .normalizeEmail(),
-    body('role')
-        .optional()
-        .isIn([Role.Admin, Role.SuperUser])
-        .withMessage('Invalid Role type'),
-    body('password')
-        .optional()
-        .notEmpty()
-        .isLength({ min: 6 })
-        .withMessage('Password must contain at least 6 characters')
-        .isLength({ max: 10 })
-        .withMessage('Password can contain max 10 characters')
-        .custom((value, { req }) => !!req.body.confirm_password)
-        .withMessage('Please confirm your password'),
-    body('confirm_password')
-        .optional()
-        .custom((value, { req }) => value === req.body.password)
-        .withMessage('confirm_password field must have the same value as the password field'),
-    body('age')
-        .optional()
-        .isNumeric()
-        .withMessage('Must be a number'),
-    body()
-        .custom(value => {
-            return !!Object.keys(value).length;
-        })
-        .withMessage('Please provide required field to update')
-        .custom(value => {
-            const updates = Object.keys(value);
-            const allowUpdates = ['username', 'password', 'confirm_password', 'email', 'role', 'first_name', 'last_name', 'age'];
-            return updates.every(update => allowUpdates.includes(update));
-        })
-        .withMessage('Invalid updates!')
+exports.addVARequest = [
+    body('provider')
+        .exists()
+        .withMessage('Provider is required')
+        .custom(async value => {
+            const provider = await Provider.findOne({ where: { code: value } });
+            if (!provider) {
+                throw new Error('Invalid provider');
+            }
+        }),
+    body('accountName')
+        .exists()
+        .withMessage('Account name is required'),
+    body('bvn')
+        .exists()
+        .withMessage('BVN is required')
+        .isLength({ min: 11, max: 11 })
+        .withMessage('BVN must be 11 character'),
+    body('phoneNumber')
+        .exists()
+        .withMessage('Phone number is required')
+        .isMobilePhone()
+        .withMessage('Invalid phone number')
 ];
 
-exports.validateLogin = [
-    body('email')
-        .exists()
-        .withMessage('Email is required')
-        .isEmail()
-        .withMessage('Must be a valid email')
-        .normalizeEmail(),
-    body('password')
-        .exists()
-        .withMessage('Password is required')
-        .notEmpty()
-        .withMessage('Password must be filled')
-];

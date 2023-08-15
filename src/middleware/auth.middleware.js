@@ -2,9 +2,10 @@ const HttpException = require('../utils/HttpException.utils');
 const UserModel = require('../models/channel.model');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
+const Channel = require('../models/channel.model');
 dotenv.config();
 
-const auth = (...roles) => {
+const auth = (role) => {
     return async function (req, res, next) {
         try {
             const authHeader = req.headers.authorization;
@@ -15,32 +16,35 @@ const auth = (...roles) => {
             }
 
             const token = authHeader.replace(bearer, '');
-            const secretKey = process.env.SECRET_JWT || "";
+            if (role == "ADMIN") {
+                if (token !== process.env.ADMIN_TOKEN) {
+                    throw new HttpException(401, 'Authentication failed!');
+                } else {
+                    next();
+                }
+            } else if (role == "POS") {
+                if (token !== process.env.POS_TOKEN) {
+                    throw new HttpException(401, 'Authentication failed!');
+                } else {
+                    next();
+                }
+            } else {
+                const secretKey = process.env.SECRET_JWT || "";
+                const decoded = jwt.verify(token, secretKey);
+                const channel = await Channel.findOne({ where: { id: decoded.channel_id } });
 
-            // Verify Token
-            const decoded = jwt.verify(token, secretKey);
-            const user = await UserModel.findOne({ id: decoded.user_id });
+                if (!channel) {
+                    throw new HttpException(401, 'Authentication failed. Invalid API key token');
+                }
 
-            if (!user) {
-                throw new HttpException(401, 'Authentication failed!');
+                req.channel = channel;
+                next();
             }
-
-            // check if the current user is the owner user
-            const ownerAuthorized = req.params.id == user.id;
-
-            // if the current user is not the owner and
-            // if the user role don't have the permission to do this action.
-            // the user will get this error
-            if (!ownerAuthorized && roles.length && !roles.includes(user.role)) {
-                throw new HttpException(401, 'Unauthorized');
-            }
-
-            // if the user has permissions
-            req.currentUser = user;
-            next();
 
         } catch (e) {
+            console.log(e)
             e.status = 401;
+            e.message = "Authentication failed. " + e.message;
             next(e);
         }
     }

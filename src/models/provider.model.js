@@ -1,9 +1,9 @@
-const { Model, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require("./sequelize.config");
+const VirtualAccount = require('./virtualAccount.model');
+const SettlementAccount = require('./settlementAccount.model');
 
-class Provider extends Model { }
-
-Provider.init({
+const Provider = sequelize.define('Provider', {
     uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
@@ -25,16 +25,26 @@ Provider.init({
     prefix: {
         type: DataTypes.STRING,
     },
+    credentials: {
+        type: DataTypes.JSON,
+        get() {
+            const rawValue = this.getDataValue('credentials');
+            return rawValue ? JSON.parse(rawValue) : {};
+        }
+    },
     status: {
         type: DataTypes.ENUM('active', 'inactive'),
         defaultValue: "active"
     },
 }, {
-    sequelize,
-    modelName: 'Provider',
+    tableName: 'providers',
     paranoid: true,
-})
+});
 
+Provider.hasMany(VirtualAccount);
+VirtualAccount.belongsTo(Provider)
 
+Provider.hasMany(SettlementAccount);
+SettlementAccount.belongsTo(Provider);
 
 module.exports = Provider;

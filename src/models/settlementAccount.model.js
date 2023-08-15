@@ -1,9 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require("./sequelize.config");
 
-class SettlementAccount extends Model { }
-
-SettlementAccount.init({
+const SettlementAccount = sequelize.define('SettlementAccount', {
     uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
@@ -11,20 +9,18 @@ SettlementAccount.init({
     accountNumber: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        // unique: false
     },
     accountName: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
+        allowNull: false
     },
     status: {
         type: DataTypes.ENUM('active', 'inactive'),
         defaultValue: "active"
     },
 }, {
-    sequelize,
-    modelName: 'SettlementAccount',
+    tableName: 'settlement_accounts',
     paranoid: true,
 })
 

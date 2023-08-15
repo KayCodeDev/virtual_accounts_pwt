@@ -1,9 +1,11 @@
-const { Model, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require("./sequelize.config");
+const VirtualAccount = require('./virtualAccount.model');
+const SettlementAccount = require('./settlementAccount.model');
+const TransactionNotification = require('./transactionNotification.model');
 
-class Channel extends Model { }
+const Channel = sequelize.define('Channel', {
 
-Channel.init({
     uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
@@ -18,15 +20,27 @@ Channel.init({
         allowNull: false,
         unique: true
     },
-    collected: {
-        type: DataTypes.DOUBLE,
-        defaultValue: 0.0
-    },
+
     channelType: {
         type: DataTypes.ENUM('merchant', 'tp'),
         defaultValue: "merchant"
     },
+    collected: {
+        type: DataTypes.DOUBLE,
+        defaultValue: 0.0
+    },
+    settled: {
+        type: DataTypes.DOUBLE,
+        defaultValue: 0.0
+    },
+    feeCharge: {
+        type: DataTypes.DOUBLE,
+        defaultValue: 0.0
+    },
     webhookUrl: {
+        type: DataTypes.STRING,
+    },
+    apiKey: {
         type: DataTypes.STRING,
     },
     bearer: {
@@ -34,13 +48,20 @@ Channel.init({
     },
     prefix: {
         type: DataTypes.STRING,
+        allowNull: false,
     }
 }, {
-    sequelize,
-    modelName: 'Channel',
+    tableName: 'channels',
     paranoid: true,
-})
+});
 
+Channel.hasMany(VirtualAccount);
+VirtualAccount.belongsTo(Channel);
 
+Channel.hasMany(TransactionNotification);
+TransactionNotification.belongsTo(Channel);
+
+Channel.hasMany(SettlementAccount);
+SettlementAccount.belongsTo(Channel);
 
 module.exports = Channel;

@@ -1,9 +1,8 @@
-const { Model, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require("./sequelize.config");
+const VirtualAccount = require('./virtualAccount.model');
 
-class TransactionNotification extends Model { }
-
-TransactionNotification.init({
+const TransactionNotification = sequelize.define('TransactionNotification', {
     uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
@@ -11,7 +10,6 @@ TransactionNotification.init({
     accountNumber: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
     },
     reference: {
         type: DataTypes.STRING,
@@ -27,15 +25,18 @@ TransactionNotification.init({
         type: DataTypes.DOUBLE,
         allowNull: false,
     },
-    fee: {
-        type: DataTypes.DOUBLE,
-        defaultValue: 0.0,
-    },
     settledAmount: {
         type: DataTypes.DOUBLE,
         allowNull: false,
     },
+    feeCharge: {
+        type: DataTypes.DOUBLE,
+        defaultValue: 0.0,
+    },
     description: {
+        type: DataTypes.STRING,
+    },
+    transactionDate: {
         type: DataTypes.STRING,
     },
     currency: {
@@ -45,6 +46,9 @@ TransactionNotification.init({
     originator: {
         type: DataTypes.STRING,
     },
+    ip: {
+        type: DataTypes.STRING,
+    },
     providerNotification: {
         type: DataTypes.JSON,
     },
@@ -52,11 +56,8 @@ TransactionNotification.init({
         type: DataTypes.JSON,
     },
 }, {
-    sequelize,
-    modelName: 'TransactionNotification',
+    tableName: 'transaction_notifications',
     paranoid: true,
-})
-
-
+});
 
 module.exports = TransactionNotification;
