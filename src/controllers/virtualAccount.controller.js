@@ -38,7 +38,7 @@ class VirtualAccountController {
                         },
                     },
                     {
-                        '$provider.code$': {
+                        '$Provider.code$': {
                             [Op.like]: `%${search}%`,
                         },
                     },
