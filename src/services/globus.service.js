@@ -60,11 +60,13 @@ class GlobusService {
             'Content-Type': 'multipart/form-data'
         }
 
+        console.log(url);
+
         console.log("sending request to Globus for Generate token");
 
         const response = await common.sendPost(url, data, { headers });
 
-        if (response.hasOwnProperty('access_token')) {
+        if (response != undefined && response.hasOwnProperty('access_token')) {
             return response.access_token;
         }
 
