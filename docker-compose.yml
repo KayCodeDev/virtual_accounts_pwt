@@ -13,5 +13,3 @@ services:
       - "3300:3300"
       - "3301:3301" # Socket Port
     working_dir: /app
-    volumes:
-      - ./:/app

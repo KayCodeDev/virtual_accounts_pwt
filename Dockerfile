@@ -2,12 +2,13 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
+
+COPY . .
 
 RUN npm install
 
-COPY src/ ./src/
-COPY .env .
+WORKDIR /app
 
 EXPOSE 3300
 EXPOSE 3301
