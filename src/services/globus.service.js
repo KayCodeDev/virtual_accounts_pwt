@@ -61,6 +61,8 @@ class GlobusService {
         }
 
         console.log(url);
+        console.log(data);
+        console.log(headers);
 
         console.log("sending request to Globus for Generate token");
 
