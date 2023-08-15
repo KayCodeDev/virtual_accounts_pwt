@@ -4,11 +4,10 @@ WORKDIR /app
 
 COPY package.json ./
 
-COPY . .
-
 RUN npm install
 
-WORKDIR /app
+COPY src/ ./src/
+COPY .env .env
 
 EXPOSE 3300
 EXPOSE 3301
