@@ -15,7 +15,7 @@ exports.sendPost = async (url, data, options) => {
             return response.data;
         })
         .catch((error) => {
-            console.error(error.data);
+            console.error(error);
             return error.data;
         });
 }
