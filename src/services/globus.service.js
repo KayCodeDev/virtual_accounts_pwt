@@ -1,5 +1,5 @@
 const common = require("../utils/common.utils");
-const FormData = require('form-data');
+const qs = require('querystring');
 
 class GlobusService {
 
@@ -49,34 +49,23 @@ class GlobusService {
         const password = common.toSha256(provider.credentials.password);
         const username = common.toSha256(common.nowDate() + provider.credentials.cliendID);
 
-        const form = new FormData();
-
-        form.append('grant_type', 'password');
-        form.append('username', username);
-        form.append('password', password);
-        form.append('client_id', provider.credentials.cliendID ?? "");
-        form.append('client_secret', provider.credentials.cliendSecret ?? "");
-        form.append('scope', provider.credentials.scope ?? "");
-        // const data = {
-        //     grant_type: "password",
-        //     username,
-        //     password,
-        //     client_id: provider.credentials.cliendID ?? "",
-        //     client_secret: provider.credentials.cliendSecret ?? "",
-        //     scope: provider.credentials.scope ?? ""
-        // }
+        const data = {
+            grant_type: "password",
+            username,
+            password,
+            client_id: provider.credentials.cliendID ?? "",
+            client_secret: provider.credentials.cliendSecret ?? "",
+            scope: provider.credentials.scope ?? ""
+        }
         const url = provider.credentials.tokenUrl;
 
         const headers = {
-            ...form.getHeaders()
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
-        console.log(form);
-        console.log(url);
-        console.log(headers);
 
         console.log("sending request to Globus for Generate token");
 
-        const response = await common.sendPost(url, form, { headers });
+        const response = await common.sendPost(url, qs.stringify(data), { headers });
 
         if (response != undefined && response.hasOwnProperty('access_token')) {
             return response.access_token;

@@ -158,7 +158,7 @@ class VirtualAccountController {
             }
 
             const provider = await Provider.findOne({ where: { code: providerCode } });
-            console.log(provider);
+
             const channel = await Channel.findOne({
                 where: { channelType: "merchant" },
                 include: {
