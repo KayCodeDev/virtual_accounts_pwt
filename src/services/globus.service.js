@@ -10,7 +10,7 @@ class GlobusService {
             AccountName: accountName,
             LinkedPartnerAccountNumber: settlementAccount,
             VirtualAccountNumber: account,
-            CanExpire: "false",
+            CanExpire: false,
             ExpiredTime: 0,
             hasTransactionAmount: false,
             TransactionAmount: 0
@@ -31,7 +31,7 @@ class GlobusService {
 
         const url = provider.credentials.baseUrl + "api/Account/generateVirtualAccountLite";
 
-        console.log("sending request to Globus Squadco for virtual account")
+        console.log("sending request to Globus for virtual account")
 
         const response = await common.sendPost(url, data, { headers });
 
@@ -66,9 +66,6 @@ class GlobusService {
         const formData = qs.stringify(data);
 
         console.log("sending request to Globus for Generate token");
-        console.log(headers);
-        console.log(url);
-        console.log(formData);
 
         const response = await common.sendPost(url, formData, { headers });
 
