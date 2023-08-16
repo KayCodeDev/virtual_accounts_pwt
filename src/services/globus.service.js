@@ -47,7 +47,7 @@ class GlobusService {
 
     __generateAccessToken = async (provider) => {
         const password = common.toSha256(provider.credentials.password);
-        const username = common.toSha256(common.nowDate() + provider.credentials.cliendID);
+        const username = common.toSha256(common.nowDate('yyyyMMdd') + provider.credentials.cliendID);
 
         const data = {
             grant_type: "password",
@@ -63,9 +63,14 @@ class GlobusService {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
 
-        console.log("sending request to Globus for Generate token");
+        const formData = qs.stringify(data);
 
-        const response = await common.sendPost(url, qs.stringify(data), { headers });
+        console.log("sending request to Globus for Generate token");
+        console.log(headers);
+        console.log(url);
+        console.log(formData);
+
+        const response = await common.sendPost(url, formData, { headers });
 
         if (response != undefined && response.hasOwnProperty('access_token')) {
             return response.access_token;
