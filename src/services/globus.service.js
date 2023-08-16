@@ -72,7 +72,7 @@ class GlobusService {
 
         console.log("sending request to Globus for Generate token");
 
-        const response = await common.sendPost(url, data, { headers });
+        const response = await common.sendPost(url, form, { headers });
 
         if (response != undefined && response.hasOwnProperty('access_token')) {
             return response.access_token;
