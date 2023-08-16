@@ -115,7 +115,7 @@ class VirtualAccountController {
 
         const transactions = await TransactionNotification.findAll({
             where: { accountNumber: account, ChannelId: channel.id },
-            attributes: { exclude: ['providerNotification', 'channelResponse', 'ip'] },
+            attributes: { exclude: ['providerNotification', 'channelResponse', 'ip', 'feeCharge', 'deletedAt', 'ChannelId'] },
             include: [
                 {
                     model: VirtualAccount,
