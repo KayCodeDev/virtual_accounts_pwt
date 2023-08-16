@@ -19,6 +19,10 @@ class SocketServer {
                         if (jsonData.hasOwnProperty('action') && jsonData.action === "joining" && jsonData.hasOwnProperty('tid')) {
                             const key = `${socket.remoteAddress}:${socket.remotePort}`;
                             socketManager.addSocket(key, jsonData.tid, socket);
+                            socket.write(`Connected from ${socket.remoteAddress}:${socket.remotePort}`);
+                        } else {
+                            socket.write(`Unable to connect, expected action not sent. Attempted to connected from ${socket.remoteAddress}:${socket.remotePort}`);
+                            socket.end();
                         }
                     }
                 } catch (e) {

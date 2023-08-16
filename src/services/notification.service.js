@@ -8,18 +8,7 @@ class NotificationService {
             status: "success",
             message: "Virtual account transaction notification",
             event: "transaction",
-            data: {
-                accountNumber: account.accountNumber,
-                reference: notification.reference,
-                transactionId: notification.transactionId,
-                amount: notification.amount,
-                currency: notification.currency,
-                settledAmount: notification.settledAmount,
-                description: notification.description,
-                originator: notification.originator,
-                transactionDate: notification.transactionDate,
-                provider
-            }
+            data: notification
         }
 
         const url = account.Channel.webhookUrl;
@@ -35,25 +24,14 @@ class NotificationService {
         await notification.update({ channelResponse: response })
     }
 
-    sendSocket = (account, notification, provider) => {
-        const data = {
-            tid: account.tid,
-            accountNumber: account.accountNumber,
-            reference: notification.reference,
-            transactionId: notification.transactionId,
-            amount: notification.amount,
-            currency: notification.currency,
-            settledAmount: notification.settledAmount,
-            description: notification.description,
-            originator: notification.originator,
-            transactionDate: notification.transactionDate,
-            provider
-        }
+    sendSocket = (account, notification) => {
+
+        notification.tid = account.tid;
 
         try {
             const socket = socketManager.getSocketByTID(account.tid);
             if (socket !== undefined) {
-                socket.write(JSON.stringify(data))
+                socket.write(JSON.stringify(notification))
                 console.info(`Data sent to ${account.tid} on socket`);
             } else {
                 console.error(`No socket connection found for ${account.tid}`);

@@ -56,7 +56,7 @@ class NotificationController {
                 let feeCharge = ((amount * account.Channel.feeCharge) / 100);
                 let settledAmount = amount - feeCharge;
 
-                const notification = await TransactionNotification.create({
+                await TransactionNotification.create({
                     accountNumber: account.accountNumber,
                     reference,
                     transactionId,
@@ -79,10 +79,26 @@ class NotificationController {
 
                 await account.Channel.update({ collected: (account.Channel.collected + amount), settled: (account.Channel.settled + settledAmount) });
 
+                const notification = await TransactionNotification.findOne({
+                    where: { reference },
+                    attributes: { exclude: ['providerNotification', 'channelResponse', 'ip'] },
+                    include: [
+                        {
+                            model: VirtualAccount,
+                            attributes: ['tid', 'accountNumber', 'accountName'],
+                            include: {
+                                model: Provider,
+                                attributes: ['name', 'code'],
+                            },
+                        },
+
+                    ],
+                });
+
                 if (account.Channel.channelType == "merchant") {
-                    notificationService.sendSocket(account, notification, provider.code);
+                    notificationService.sendSocket(account, notification);
                 } else {
-                    notificationService.sendWebhook(account, notification, provider.code);
+                    notificationService.sendWebhook(account, notification);
                 }
             }
         } catch (e) {
