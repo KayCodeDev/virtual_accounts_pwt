@@ -50,6 +50,7 @@ class GlobusService {
         const username = common.toSha256(common.nowDate() + provider.credentials.cliendID);
 
         const form = new FormData();
+
         form.append('grant_type', 'password');
         form.append('username', username);
         form.append('password', password);
@@ -69,6 +70,9 @@ class GlobusService {
         const headers = {
             ...form.getHeaders()
         }
+        console.log(form);
+        console.log(url);
+        console.log(headers);
 
         console.log("sending request to Globus for Generate token");
 
