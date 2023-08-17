@@ -89,7 +89,7 @@ class VirtualAccountController {
         const tid = req.params.tid;
 
         const transactions = await TransactionNotification.findAll({
-            attributes: { exclude: ['providerNotification', 'channelResponse', 'ip'] },
+            attributes: { exclude: ['providerNotification', 'channelResponse', 'ip', 'feeCharge', 'deletedAt', 'ChannelId'] },
             include: [
                 {
                     model: VirtualAccount,

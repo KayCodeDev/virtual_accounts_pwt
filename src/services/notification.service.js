@@ -26,8 +26,6 @@ class NotificationService {
 
     sendSocket = (account, notification) => {
 
-        notification.tid = account.tid;
-
         try {
             const socket = socketManager.getSocketByTID(account.tid);
             if (socket !== undefined) {
