@@ -12,7 +12,7 @@ function errorMiddleware(error, req, res, next) {
         data
     }
 
-    res.status(status).send(error);
+    res.status(parseInt(status)).send(error);
 }
 
 module.exports = errorMiddleware;
