@@ -169,7 +169,11 @@ class VirtualAccountController {
             });
 
             if (!settlementAccount) {
-                settlementAccount = channel.SettlementAccounts[0].accountNumber;
+                if (channel.SettlementAccounts.length > 0) {
+                    settlementAccount = channel.SettlementAccounts[0].accountNumber;
+                } else {
+                    return respondError(res, "Settlement account must be provided");
+                }
             }
 
             const response = await switchProviderCall(provider, channel, tid, accountName, bvn, phoneNumber, settlementAccount);
