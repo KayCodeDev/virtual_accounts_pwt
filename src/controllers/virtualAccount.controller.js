@@ -141,7 +141,7 @@ class VirtualAccountController {
         let { provider: providerCode, accountName, bvn, phoneNumber, settlementAccount, tid } = req.body;
 
         try {
-            const exist = await VirtualAccount.findOne({
+            let account = await VirtualAccount.findOne({
                 include: Provider,
                 where: {
                     [Op.and]: [
@@ -153,9 +153,9 @@ class VirtualAccountController {
                 },
             });
 
-            if (exist) {
-                return respondError(res, "Virtual account already exist for TID with provider");
-            }
+            // if (exist) {
+            //     return respondError(res, "Virtual account already exist for TID with provider");
+            // }
 
             const provider = await Provider.findOne({ where: { code: providerCode } });
 
@@ -182,16 +182,20 @@ class VirtualAccountController {
                 return respondError(res, response.message);
             }
 
-            let account = await VirtualAccount.create({
-                accountNumber: response.account,
-                accountName,
-                bvn,
-                phoneNumber,
-                settlementAccount,
-                tid,
-                ProviderId: provider.id,
-                ChannelId: channel.id
-            })
+            if (account) {
+                account.update({ accountNumber: response.account, accountName, settlementAccount, tid });
+            } else {
+                account = await VirtualAccount.create({
+                    accountNumber: response.account,
+                    accountName,
+                    bvn,
+                    phoneNumber,
+                    settlementAccount,
+                    tid,
+                    ProviderId: provider.id,
+                    ChannelId: channel.id
+                })
+            }
 
             return respondSuccess(res, "Virtual account created successfully", { accountNumber: account.accountNumber, accountName: account.accountName, bvn: account.bvn, phoneNumber: account.phoneNumber, tid: account.tid, Provider: { name: provider.name } });
 
@@ -207,7 +211,7 @@ class VirtualAccountController {
         const { provider: providerCode, accountName, bvn, phoneNumber } = req.body;
 
         try {
-            const exist = await VirtualAccount.findOne({
+            let account = await VirtualAccount.findOne({
                 include: Provider,
                 where: {
                     [Op.and]: [
@@ -222,10 +226,6 @@ class VirtualAccountController {
                     ],
                 },
             });
-
-            if (exist) {
-                return respondError(res, "Virtual account already exist for BVN/Phone number with provider");
-            }
 
             const provider = await Provider.findOne({ where: { code: providerCode } });
 
@@ -247,16 +247,19 @@ class VirtualAccountController {
             if (response.error) {
                 return respondError(res, response.message);
             }
-
-            let account = await VirtualAccount.create({
-                accountNumber: response.account,
-                accountName,
-                bvn,
-                phoneNumber,
-                settlementAccount: settlementDto.SettlementAccounts[0].accountNumber,
-                ProviderId: provider.id,
-                ChannelId: channel.id
-            })
+            if (account) {
+                account.update({ accountNumber: response.account, accountName, settlementAccount: settlementDto.SettlementAccounts[0].accountNumber, tid });
+            } else {
+                account = await VirtualAccount.create({
+                    accountNumber: response.account,
+                    accountName,
+                    bvn,
+                    phoneNumber,
+                    settlementAccount: settlementDto.SettlementAccounts[0].accountNumber,
+                    ProviderId: provider.id,
+                    ChannelId: channel.id
+                })
+            }
 
             return respondSuccess(res, "Virtual account created successfully", { accountNumber: account.accountNumber, accountName: account.accountName, bvn: account.bvn, phoneNumber: account.phoneNumber, Provider: { name: provider.name } });
 
