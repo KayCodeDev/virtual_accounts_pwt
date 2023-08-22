@@ -81,7 +81,7 @@ class NotificationController {
 
                 const notification = await TransactionNotification.findOne({
                     where: { reference },
-                    attributes: { exclude: ['providerNotification', 'channelResponse', 'ip', 'feeCharge', 'deletedAt', 'ChannelId'] },
+                    attributes: { exclude: ['providerNotification', 'channelResponse', 'ip', 'deletedAt', 'ChannelId'] },
                     include: [
                         {
                             model: VirtualAccount,
