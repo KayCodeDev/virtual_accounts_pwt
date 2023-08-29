@@ -31,9 +31,11 @@ class GlobusService {
 
         const url = provider.credentials.baseUrl + "api/Account/generateVirtualAccountLite";
 
-        console.log("sending request to Globus for virtual account")
+        console.log("sending request to Globus for virtual account", data)
 
         const response = await common.sendPost(url, data, { headers });
+
+        console.log("Response from Globus for virtual account", response)
 
         console.log(response);
         if (response?.hasOwnProperty('responseCode') && response.responseCode == "00") {
@@ -65,9 +67,11 @@ class GlobusService {
 
         const formData = qs.stringify(data);
 
-        console.log("sending request to Globus for Generate token");
+        console.log("sending request to Globus for Generate token", formData);
 
         const response = await common.sendPost(url, formData, { headers });
+
+        console.log("response from Globus for Generate token", response);
 
         if (response != undefined && response.hasOwnProperty('access_token')) {
             return response.access_token;
