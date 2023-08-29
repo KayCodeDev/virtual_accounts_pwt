@@ -103,7 +103,7 @@ class VirtualAccountController {
 
             ],
             order: [['createdAt', 'DESC']],
-            limit: 5,
+            limit: 10,
         });
 
         return respondSuccess(res, "Recent transactions retrieved successfully", { transactions });
