@@ -4,7 +4,7 @@ class SocketManager {
     }
 
     addSocket(key, tid, socket) {
-        const index = this.sockets.findIndex(item => item.key === key);
+        const index = this.sockets.findIndex(item => item.tid === tid);
 
         if (index !== -1) {
             this.sockets.splice(index, 1);
