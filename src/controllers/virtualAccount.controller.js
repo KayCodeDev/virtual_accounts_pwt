@@ -285,6 +285,7 @@ class VirtualAccountController {
                 include: Provider,
                 where: {
                     [Op.and]: [
+                        { accountNumber },
                         { tid },
                         {
                             '$Provider.code$': providerCode,
