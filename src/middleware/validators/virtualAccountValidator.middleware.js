@@ -61,3 +61,26 @@ exports.addVARequest = [
         .withMessage('Invalid phone number')
 ];
 
+exports.registerVARequest = [
+    body('accountName')
+        .exists()
+        .withMessage('Account name is required'),
+    body('accountNumber')
+        .exists()
+        .withMessage('Account number is required'),
+    body('tid')
+        .exists()
+        .withMessage('Terminal ID is required')
+        .isLength({ min: 8, max: 8 })
+        .withMessage('Invalid terminal ID'),
+    body('settlementAccount')
+        .exists()
+        .withMessage('Merchant settlement account is required')
+        .isLength({ min: 10, max: 10 })
+        .withMessage('Invalid settlement account'),
+    body('phoneNumber')
+        .optional()
+        .isMobilePhone()
+        .withMessage('Invalid phone number'),
+];
+

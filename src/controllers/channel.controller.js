@@ -61,7 +61,7 @@ class ChannelController {
 
             const secretKey = process.env.SECRET_JWT || "";
             const token = jwt.sign({ channel_id: channel.id.toString() }, secretKey, {
-                expiresIn: '5y'
+                expiresIn: '10y'
             });
 
             channel.update({ apiKey: token });

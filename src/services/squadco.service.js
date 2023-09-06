@@ -4,7 +4,7 @@ class SquadcoService {
 
     createVirtualAccount = async (provider, identifier, accountName, phoneNumber, bvn, settlementAccount) => {
         const data = {
-            customer_identifier: "CPL-" + identifier,
+            customer_identifier: "CPL-PWT-" + identifier,
             business_name: accountName,
             mobile_num: phoneNumber,
             bvn: bvn,

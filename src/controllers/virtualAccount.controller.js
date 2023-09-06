@@ -248,7 +248,7 @@ class VirtualAccountController {
                 return respondError(res, response.message);
             }
             if (account) {
-                account.update({ accountNumber: response.account, accountName, settlementAccount: settlementDto.SettlementAccounts[0].accountNumber, tid });
+                account.update({ accountNumber: response.account, accountName, settlementAccount: settlementDto.SettlementAccounts[0].accountNumber });
             } else {
                 account = await VirtualAccount.create({
                     accountNumber: response.account,
@@ -262,6 +262,53 @@ class VirtualAccountController {
             }
 
             return respondSuccess(res, "Virtual account created successfully", { accountNumber: account.accountNumber, accountName: account.accountName, bvn: account.bvn, phoneNumber: account.phoneNumber, Provider: { name: provider.name } });
+
+        } catch (e) {
+            console.log(e)
+            return respondError(res, e.message);
+        }
+    }
+
+    registerVirtualAccount = async (req, res, next) => {
+        checkValidation(req);
+        const providerCode = req.params.provider;
+        const channel = req.channel;
+        const { accountName, accountNumber, tid, settlementAccount, phoneNumber } = req.body;
+
+        const provider = await Provider.findOne({ where: { code: providerCode } });
+        if (!provider) {
+            return respondError(res, "No provider found");
+        }
+
+        try {
+            let account = await VirtualAccount.findOne({
+                include: Provider,
+                where: {
+                    [Op.and]: [
+                        { tid },
+                        {
+                            '$Provider.code$': providerCode,
+                        },
+                    ],
+                },
+            });
+
+            if (account) {
+                account.update({ accountNumber, accountName, settlementAccount, tid });
+            } else {
+                account = await VirtualAccount.create({
+                    accountNumber,
+                    accountName,
+                    bvn: "N/A",
+                    phoneNumber: phoneNumber ?? "N/A",
+                    settlementAccount,
+                    tid,
+                    ProviderId: provider.id,
+                    ChannelId: channel.id
+                })
+            }
+
+            return respondSuccess(res, "Virtual account registered successfully");
 
         } catch (e) {
             console.log(e)
