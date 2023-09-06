@@ -3,7 +3,7 @@ const router = express.Router();
 const auth = require('../middleware/auth.middleware');
 const awaitHandlerFactory = require('../middleware/awaitHandlerFactory.middleware');
 const virtualAccountController = require('../controllers/virtualAccount.controller');
-const { addVARequest } = require('../middleware/validators/virtualAccountValidator.middleware');
+const { addVARequest, registerVARequest } = require('../middleware/validators/virtualAccountValidator.middleware');
 const { squadcoNotificationRequest, globusNotificationRequest } = require('../middleware/validators/notificationValidator.middleware');
 const notificationController = require('../controllers/notification.controller');
 
