@@ -31,13 +31,11 @@ exports.addChannelRequest = [
         .isIn(['merchant', 'tp'])
         .withMessage('Valid channel type is required'),
     body('webhookUrl')
-        .exists()
-        .withMessage('Webhook is required')
+        .optional()
         .isURL()
         .withMessage('Valid webhook is required'),
     body('bearer')
-        .exists()
-        .withMessage('Bearer token is required')
+        .optional()
         .isLength({ min: 10, max: 500 })
         .withMessage('Bearer exceeds allowed length'),
     body('feeCharge')
