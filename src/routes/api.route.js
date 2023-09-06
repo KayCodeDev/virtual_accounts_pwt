@@ -19,7 +19,7 @@ router.post('/account/add', auth(), addVARequest, awaitHandlerFactory(virtualAcc
 router.post('/notifcation/gtbank', squadcoNotificationRequest, awaitHandlerFactory(notificationController.fromSquadco));
 router.post('/notifcation/globus', globusNotificationRequest, awaitHandlerFactory(notificationController.fromGlobus));
 
-router.get('/account/register/:provider', auth(), registerVARequest, awaitHandlerFactory(virtualAccountController.getAccount));
+router.post('/account/register/:provider', auth(), registerVARequest, awaitHandlerFactory(virtualAccountController.getAccount));
 
 
 module.exports = router;
