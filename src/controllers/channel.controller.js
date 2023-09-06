@@ -47,11 +47,11 @@ class ChannelController {
         checkValidation(req);
         const { name, email, channelType, webhookUrl, bearer, feeCharge, prefix } = req.body;
 
-        if (channelType == "merchant") {
-            if (await Channel.findOne({ where: { channelType } })) {
-                return respondError(res, "Merchant channel already exists")
-            }
-        }
+        // if (channelType == "merchant") {
+        //     if (await Channel.findOne({ where: { channelType } })) {
+        //         return respondError(res, "Merchant channel already exists")
+        //     }
+        // }
 
         if (!prefix) {
             prefix = randGen(3);

@@ -11,11 +11,12 @@ const notificationService = require('../services/notification.service');
 class NotificationController {
     fromSquadco = async (req, res, next) => {
         checkValidation(req);
+        console.log("Callback from Squad", req.body);
+
         const provider = await Provider.findOne({ where: { code: "gtbank" } });
 
         const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
 
-        console.log(hash);
         if (hash != req.headers['x-squad-signature']) {
             res.status(400).send({ error: "Invalid signature" });
         } else {
@@ -28,12 +29,17 @@ class NotificationController {
 
     fromGlobus = async (req, res, next) => {
         checkValidation(req);
+        console.log("Callback from Globus", req.body);
         const provider = await Provider.findOne({ where: { code: "globus" } });
 
-        const { TransID: reference, VirtualAccount: account, Amount: amount, TransactionDate: date, NubanAccountName: originator, narration: description } = req.body;
-        originator = req.body.NubanAccount + "|" + originator;
+        if ((req.headers['clientid'] ?? req.headers['ClientID']) == provider.credentials.cliendID) {
+            const { TransID: reference, VirtualAccount: account, Amount: amount, TransactionDate: date, NubanAccountName: originator, narration: description } = req.body;
+            originator = req.body.NubanAccount + "|" + originator;
 
-        return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body);
+            return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body);
+        } else {
+            res.status(400).send({ error: "Invalid Cliend ID" });
+        }
     }
 
     __handleNotification = async (res, provider, reference, acct, amount, date, originator, description, response) => {
@@ -95,9 +101,10 @@ class NotificationController {
                     ],
                 });
 
-                if (account.Channel.channelType == "merchant") {
+                if (account.tid != null && account.tid.length == 8) {
                     notificationService.sendSocket(account, notification);
-                } else {
+                }
+                if (account.Channel.webhookUrl != null) {
                     notificationService.sendWebhook(account, notification);
                 }
             }
