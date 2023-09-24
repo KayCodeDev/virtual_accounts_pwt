@@ -229,16 +229,28 @@ class VirtualAccountController {
 
             const provider = await Provider.findOne({ where: { code: providerCode } });
 
-            console.log(channel);
-
-            const settlementDto = await channel.reload({
-                include: [
-                    {
-                        model: SettlementAccount,
-                        where: { ProviderId: provider.id },
-                    },
-                ],
-            });
+            // console.log(channel);
+            const settlementDto = null;
+            if (channel) {
+                settlementDto = await channel.reload({
+                    include: [
+                        {
+                            model: SettlementAccount,
+                            where: { ProviderId: provider.id },
+                        },
+                    ],
+                });
+            } else {
+                settlementDto = await Channel.findOne({
+                    where: { id: channel.id },
+                    include: [
+                        {
+                            model: SettlementAccount,
+                            where: { ProviderId: provider.id },
+                        },
+                    ],
+                });
+            }
 
             if (settlementDto.SettlementAccounts.length == 0) {
                 return respondError(res, "No settlement account profile for your channel yet with provider");
