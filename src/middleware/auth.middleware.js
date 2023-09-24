@@ -45,7 +45,7 @@ const auth = (role) => {
                     throw new HttpException(401, 'Authentication failed. Invalid API key token');
                 }
 
-                if (!channel.SettlementAccounts.length == 0) {
+                if (channel.SettlementAccounts.length == 0) {
                     throw new HttpException(400, 'Channel account not profiled with settlement account yet.');
                 }
 
