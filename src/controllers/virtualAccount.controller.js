@@ -229,6 +229,8 @@ class VirtualAccountController {
 
             const provider = await Provider.findOne({ where: { code: providerCode } });
 
+            console.log(channel);
+
             const settlementDto = await channel.reload({
                 include: [
                     {
