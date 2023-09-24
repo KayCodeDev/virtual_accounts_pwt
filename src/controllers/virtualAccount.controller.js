@@ -229,47 +229,37 @@ class VirtualAccountController {
 
             const provider = await Provider.findOne({ where: { code: providerCode } });
 
-            // console.log(channel);
-            const settlementDto = null;
-            if (channel) {
-                settlementDto = await channel.reload({
-                    include: [
-                        {
-                            model: SettlementAccount,
-                            where: { ProviderId: provider.id },
-                        },
-                    ],
-                });
-            } else {
-                settlementDto = await Channel.findOne({
-                    where: { id: channel.id },
-                    include: [
-                        {
-                            model: SettlementAccount,
-                            where: { ProviderId: provider.id },
-                        },
-                    ],
-                });
-            }
+            // const settlementDto = await channel.reload({
+            //     include: [
+            //         {
+            //             model: SettlementAccount,
+            //             where: { ProviderId: provider.id },
+            //         },
+            //     ],
+            // });
 
-            if (settlementDto.SettlementAccounts.length == 0) {
+
+
+            const settlementAccount = channel.SettlementAccounts.find((e) => e.ProviderId === provider.id);
+
+            if (!settlementAccount) {
                 return respondError(res, "No settlement account profile for your channel yet with provider");
             }
 
-            const response = await switchProviderCall(provider, channel, phoneNumber, accountName, bvn, phoneNumber, settlementDto.SettlementAccounts[0].accountNumber);
+            const response = await switchProviderCall(provider, channel, phoneNumber, accountName, bvn, phoneNumber, settlementAccount.accountNumber);
 
             if (response.error) {
                 return respondError(res, response.message);
             }
             if (account) {
-                account.update({ accountNumber: response.account, accountName, settlementAccount: settlementDto.SettlementAccounts[0].accountNumber });
+                account.update({ accountNumber: response.account, accountName, settlementAccount: settlementAccount.accountNumber });
             } else {
                 account = await VirtualAccount.create({
                     accountNumber: response.account,
                     accountName,
                     bvn,
                     phoneNumber,
-                    settlementAccount: settlementDto.SettlementAccounts[0].accountNumber,
+                    settlementAccount: settlementAccount.accountNumber,
                     ProviderId: provider.id,
                     ChannelId: channel.id
                 })

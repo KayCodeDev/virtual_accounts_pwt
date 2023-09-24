@@ -31,10 +31,21 @@ const auth = (role) => {
             } else {
                 const secretKey = process.env.SECRET_JWT || "";
                 const decoded = jwt.verify(token, secretKey);
-                const channel = await Channel.findOne({ where: { id: decoded.channel_id } });
+                const channel = await Channel.findOne({
+                    where: { id: decoded.channel_id },
+                    include: [
+                        {
+                            model: SettlementAccount,
+                        },
+                    ],
+                });
 
                 if (!channel) {
                     throw new HttpException(401, 'Authentication failed. Invalid API key token');
+                }
+
+                if (!channel.SettlementAccounts.length == 0) {
+                    throw new HttpException(400, 'Channel account not profiled with settlement account yet.');
                 }
 
                 req.channel = channel;
