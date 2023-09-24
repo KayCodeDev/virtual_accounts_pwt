@@ -3,6 +3,7 @@ const UserModel = require('../models/channel.model');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const Channel = require('../models/channel.model');
+const SettlementAccount = require('../models/settlementAccount.model');
 dotenv.config();
 
 const auth = (role) => {
