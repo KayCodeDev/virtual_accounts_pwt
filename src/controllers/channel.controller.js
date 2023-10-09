@@ -77,7 +77,7 @@ class ChannelController {
     updateChannel = async (req, res, next) => {
         checkValidation(req);
 
-        const { channelUUID, webhookUrl, bearer, feeCharge } = req.body;
+        const { channelUUID, webhookUrl, bearer, feeCharge, feeCap } = req.body;
 
         const channel = await Channel.findOne({ where: { uuid: channelUUID } });
 
