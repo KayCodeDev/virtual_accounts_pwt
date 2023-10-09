@@ -60,6 +60,9 @@ class NotificationController {
 
                 let transactionId = "CLP-PWT-" + randGen(10) + getTime(new Date());
                 let feeCharge = ((amount * account.Channel.feeCharge) / 100);
+                if (feeCharge > account.Channel.feeCap) {
+                    feeCharge = account.Channel.feeCap;
+                }
                 let settledAmount = amount - feeCharge;
 
                 await TransactionNotification.create({

@@ -43,6 +43,11 @@ exports.addChannelRequest = [
         .withMessage('Fee charge is required')
         .isNumeric()
         .withMessage('Fee charge must be numeric'),
+    body('feeCap')
+        .exists()
+        .withMessage('Fee Cap is required')
+        .isNumeric()
+        .withMessage('Fee cap must be numeric'),
     body('prefix')
         .exists()
         .withMessage('Prefix is required')

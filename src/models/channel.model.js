@@ -37,6 +37,10 @@ const Channel = sequelize.define('Channel', {
         type: DataTypes.DOUBLE,
         defaultValue: 0.0
     },
+    feeCap: {
+        type: DataTypes.DOUBLE,
+        defaultValue: 0.0
+    },
     webhookUrl: {
         type: DataTypes.STRING,
     },

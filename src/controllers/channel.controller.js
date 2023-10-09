@@ -57,7 +57,7 @@ class ChannelController {
             prefix = randGen(3);
         }
         try {
-            const channel = await Channel.create({ name, email, channelType, webhookUrl, bearer, feeCharge, prefix });
+            const channel = await Channel.create({ name, email, channelType, webhookUrl, bearer, feeCharge, feeCap, prefix });
 
             const secretKey = process.env.SECRET_JWT || "";
             const token = jwt.sign({ channel_id: channel.id.toString() }, secretKey, {
@@ -91,6 +91,10 @@ class ChannelController {
 
         if (feeCharge) {
             channel.feeCharge = feeCharge;
+        }
+
+        if (feeCap) {
+            channel.feeCap = feeCap;
         }
 
         await channel.save();
