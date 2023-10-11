@@ -51,6 +51,51 @@ class VirtualAccountController {
         return respondSuccess(res, "Virtual account list retrieved", { data: accounts, currentPage: page, perPage: count });
     };
 
+    getAllAccountTrans = async (req, res, next) => {
+
+        const page = parseInt(req.query.page ?? 1);
+        const limit = parseInt(req.query.perpage ?? 15);
+        const search = req.query.search ?? null;
+
+        const offset = (page - 1) * limit;
+
+        let transactions = await TransactionNotification.findAll({
+            offset,
+            limit,
+            order: [['createdAt', 'DESC']],
+            include: [
+                { model: Channel, attributes: ['uuid', 'name'] },
+                { model: VirtualAccount, attributes: ['accountNumber', 'accountName', 'bvn', 'received'] },
+            ],
+            where: search ? {
+                [Op.or]: [
+                    { accountNumber: { [Op.like]: `%${search}%` } },
+                    { reference: { [Op.like]: `%${search}%` } },
+                    { transactionId: { [Op.like]: `%${search}%` } },
+                    {
+                        '$Channel.name$': {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+                    {
+                        '$Channel.uuid$': {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+                    {
+                        '$VirtualAccount.accountName$': {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+                ],
+            } : null,
+        });
+
+        const count = transactions.length;
+
+        return respondSuccess(res, "Transaction list retrieved", { data: transactions, currentPage: page, perPage: count });
+    };
+
     getPosAccount = async (req, res, next) => {
         const tid = req.params.tid;
 
