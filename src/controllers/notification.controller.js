@@ -21,7 +21,7 @@ class NotificationController {
             res.status(400).send({ error: "Invalid signature" });
         } else {
 
-            const { transaction_reference: reference, virtual_account_number: account, principal_amount: amount, transaction_date: date, sender_name: originator, remark: description } = req.body;
+            const { transaction_reference: reference, virtual_account_number: account, principal_amount: amount, transaction_date: date, sender_name: originator, remarks: description } = req.body;
 
             return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body);
         }
