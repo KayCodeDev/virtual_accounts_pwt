@@ -17,14 +17,14 @@ class NotificationController {
 
         const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
 
-        // if (hash != req.headers['x-squad-signature']) {
-        //     res.status(400).send({ error: "Invalid signature" });
-        // } else {
+        if (hash != req.headers['x-squad-signature']) {
+            res.status(400).send({ error: "Invalid signature" });
+        } else {
 
-        const { transaction_reference: reference, virtual_account_number: account, principal_amount: amount, transaction_date: date, sender_name: originator, remarks: description } = req.body;
+            const { transaction_reference: reference, virtual_account_number: account, principal_amount: amount, transaction_date: date, sender_name: originator, remarks: description } = req.body;
 
-        return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body);
-        // }
+            return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body);
+        }
     }
 
     fromGlobus = async (req, res, next) => {
@@ -44,8 +44,6 @@ class NotificationController {
 
     __handleNotification = async (res, provider, reference, acct, amount, date, originator, description, response) => {
         try {
-            console.log("provider", provider)
-            console.log("account", acct)
             const account = await VirtualAccount.findOne({
                 where: { accountNumber: acct, ProviderId: provider.id },
                 include: [
@@ -54,8 +52,6 @@ class NotificationController {
                     }
                 ]
             });
-
-            console.log("account data", account)
 
             if (!account) {
                 res.status(400).send({ error: "Invalid virtual account" });

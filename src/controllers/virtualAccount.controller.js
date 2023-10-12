@@ -250,6 +250,11 @@ class VirtualAccountController {
         }
     }
 
+    addVirtualAccountManually = async (req, res, next) => {
+
+
+    }
+
     addVirtualAccount = async (req, res, next) => {
         checkValidation(req);
         const channel = req.channel;
@@ -260,9 +265,8 @@ class VirtualAccountController {
                 include: Provider,
                 where: {
                     [Op.and]: [
-
                         {
-                            [Op.or]: [{ bvn }, { phoneNumber }],
+                            [Op.or]: [{ phoneNumber }],
                         },
                         { ChannelId: channel.id },
                         {
