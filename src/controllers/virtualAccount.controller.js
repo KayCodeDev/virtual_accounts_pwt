@@ -198,10 +198,6 @@ class VirtualAccountController {
                 },
             });
 
-            // if (exist) {
-            //     return respondError(res, "Virtual account already exist for TID with provider");
-            // }
-
             const provider = await Provider.findOne({ where: { code: providerCode } });
 
             const channel = await Channel.findOne({
@@ -251,8 +247,63 @@ class VirtualAccountController {
     }
 
     addVirtualAccountManually = async (req, res, next) => {
+        checkValidation(req);
+        const { provider: providerCode, channel: channelUUID, accountName, accountNumber, bvn, phoneNumber } = req.body;
+
+        const channels = await Channel.findOne({
+            where: { uuid: channelUUID },
+            include: [
+                {
+                    model: SettlementAccount,
+                },
+            ],
+        });
+
+        const provider = await Provider.findOne({ where: { code: providerCode } });
+
+        if (!channels || !provider) {
+            return respondError(res, "Invalid channel or provider");
+        }
+        try {
+            let account = await VirtualAccount.findOne({
+                include: Provider,
+                where: {
+                    [Op.and]: [
+                        {
+                            accountNumber,
+                        },
+                        { ChannelId: channels.id },
+                        {
+                            '$Provider.code$': providerCode,
+                        },
+                    ],
+                },
+            });
+
+            if (account) {
+                return respondError(res, "Account already exist ");
+            }
+
+            const bvnAlt = bvn ?? randGen(11)
+            const phoneNumberAlt = phoneNumber ?? randGen(11)
+
+            let accountNew = await VirtualAccount.create({
+                accountNumber,
+                accountName,
+                bvnAlt,
+                phoneNumberAlt,
+                settlementAccount: channels.SettlementAccounts.accountNumber,
+                ProviderId: provider.id,
+                ChannelId: channels.id
+            })
+
+            return respondSuccess(res, "Virtual account created successfully", { accountNumber: accountNew.accountNumber, accountName: accountNew.accountName, bvn: accountNew.bvn, phoneNumber: accountNew.phoneNumber, Provider: { name: provider.name } });
 
 
+        } catch (e) {
+            console.log(e)
+            return respondError(res, e.message);
+        }
     }
 
     addVirtualAccount = async (req, res, next) => {
@@ -277,17 +328,6 @@ class VirtualAccountController {
             });
 
             const provider = await Provider.findOne({ where: { code: providerCode } });
-
-            // const settlementDto = await channel.reload({
-            //     include: [
-            //         {
-            //             model: SettlementAccount,
-            //             where: { ProviderId: provider.id },
-            //         },
-            //     ],
-            // });
-
-
 
             const settlementAccount = channel.SettlementAccounts.find((e) => e.ProviderId === provider.id);
 

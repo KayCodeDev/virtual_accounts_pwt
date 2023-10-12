@@ -8,7 +8,7 @@ const awaitHandlerFactory = require('../middleware/awaitHandlerFactory.middlewar
 const { addChannelRequest, updateChannelRequest, addSettlementAccountRequest } = require('../middleware/validators/channelValidator.middleware');
 const { addProviderRequest } = require('../middleware/validators/providerValidator.middleware');
 const virtualAccountController = require('../controllers/virtualAccount.controller');
-const { addPosVARequest } = require('../middleware/validators/virtualAccountValidator.middleware');
+const { addPosVARequest, addVAManualRequest } = require('../middleware/validators/virtualAccountValidator.middleware');
 
 
 router.get('/channels', auth('ADMIN'), awaitHandlerFactory(channelController.getAllChannels));
@@ -22,7 +22,7 @@ router.post('/providers/update/:uuid', auth('ADMIN'), awaitHandlerFactory(provid
 
 router.get('/accounts', auth('ADMIN'), awaitHandlerFactory(virtualAccountController.getAllAccount));
 router.get('/accounts/transactions', auth('ADMIN'), awaitHandlerFactory(virtualAccountController.getAllAccountTrans));
-
 router.post('/accounts/add', auth('ADMIN'), addPosVARequest, awaitHandlerFactory(virtualAccountController.addPosVirtualAccount));
+router.post('/accounts/add/manual', auth('ADMIN'), addVAManualRequest, awaitHandlerFactory(virtualAccountController.addVirtualAccountManually));
 
 module.exports = router;
