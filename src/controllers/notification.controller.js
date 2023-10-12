@@ -57,7 +57,7 @@ class NotificationController {
                     }
                 ]
             });
-
+            console.log("account", account)
             if (!account) {
                 res.status(400).send({ error: "Invalid virtual account" });
             } else {
