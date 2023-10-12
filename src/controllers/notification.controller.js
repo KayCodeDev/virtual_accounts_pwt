@@ -15,11 +15,8 @@ class NotificationController {
 
         const provider = await Provider.findOne({ where: { code: "gtbank" } });
 
-
-
         const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
-        console.log("Our Hash", hash);
-        console.log("Their Hash", req.headers['x-squad-signature']);
+
         // if (hash != req.headers['x-squad-signature']) {
         //     res.status(400).send({ error: "Invalid signature" });
         // } else {
@@ -48,14 +45,14 @@ class NotificationController {
     __handleNotification = async (res, provider, reference, acct, amount, date, originator, description, response) => {
         try {
             const account = await VirtualAccount.findOne({
-                where: { accountNumber: acct },
+                where: { accountNumber: acct, ProviderId: provider.id },
                 include: [
                     {
                         model: Channel,
                     }
                 ]
             });
-            console.log("account", account)
+
             if (!account) {
                 res.status(400).send({ error: "Invalid virtual account" });
             } else {
