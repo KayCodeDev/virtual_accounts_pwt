@@ -1,6 +1,6 @@
 
 const dotenv = require('dotenv');
-const { respondSuccess, respondError, checkValidation, switchProviderCall } = require('../utils/common.utils');
+const { respondSuccess, respondError, checkValidation, switchProviderCall, randGen } = require('../utils/common.utils');
 const Provider = require('../models/provider.model');
 const { Op } = require("sequelize");
 const VirtualAccount = require('../models/virtualAccount.model');
