@@ -45,7 +45,7 @@ class NotificationController {
     __handleNotification = async (res, provider, reference, acct, amount, date, originator, description, response) => {
         try {
             const account = await VirtualAccount.findOne({
-                where: { accountNumber: acct, ProviderId: provider.id },
+                where: { accountNumber: acct },
                 include: [
                     {
                         model: Channel,
