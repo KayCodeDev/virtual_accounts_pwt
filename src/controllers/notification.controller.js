@@ -15,6 +15,8 @@ class NotificationController {
 
         const provider = await Provider.findOne({ where: { code: "gtbank" } });
 
+        console.log("Provider", provider);
+
         const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
 
         // if (hash != req.headers['x-squad-signature']) {
