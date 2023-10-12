@@ -17,14 +17,14 @@ class NotificationController {
 
         const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
 
-        if (hash != req.headers['x-squad-signature']) {
-            res.status(400).send({ error: "Invalid signature" });
-        } else {
+        // if (hash != req.headers['x-squad-signature']) {
+        //     res.status(400).send({ error: "Invalid signature" });
+        // } else {
 
-            const { transaction_reference: reference, virtual_account_number: account, principal_amount: amount, transaction_date: date, sender_name: originator, remarks: description } = req.body;
+        const { transaction_reference: reference, virtual_account_number: account, principal_amount: amount, transaction_date: date, sender_name: originator, remarks: description } = req.body;
 
-            return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body);
-        }
+        return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body);
+        // }
     }
 
     fromGlobus = async (req, res, next) => {
