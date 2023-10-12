@@ -293,8 +293,8 @@ class VirtualAccountController {
             let accountNew = await VirtualAccount.create({
                 accountNumber,
                 accountName,
-                bvnAlt,
-                phoneNumberAlt,
+                bvn: bvnAlt,
+                phoneNumber: phoneNumberAlt,
                 settlementAccount: settlementAccount.accountNumber,
                 ProviderId: provider.id,
                 ChannelId: channels.id
