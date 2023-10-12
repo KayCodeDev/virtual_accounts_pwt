@@ -284,15 +284,18 @@ class VirtualAccountController {
                 return respondError(res, "Account already exist ");
             }
 
-            const bvnAlt = bvn ?? randGen(11)
-            const phoneNumberAlt = phoneNumber ?? randGen(11)
+            let bvnAlt = bvn ?? randGen(11)
+            let phoneNumberAlt = phoneNumber ?? randGen(11)
+            console.log(`Data used ${bvnAlt} ${phoneNumberAlt}`)
+            const settlementAccount = channels.SettlementAccounts.find((e) => e.ProviderId === provider.id);
+
 
             let accountNew = await VirtualAccount.create({
                 accountNumber,
                 accountName,
                 bvnAlt,
                 phoneNumberAlt,
-                settlementAccount: channels.SettlementAccounts.accountNumber,
+                settlementAccount: settlementAccount.accountNumber,
                 ProviderId: provider.id,
                 ChannelId: channels.id
             })
