@@ -96,7 +96,7 @@ exports.addVAManualRequest = [
         .withMessage('Valid BVN is required'),
     body('phoneNumber')
         .optional()
-        .isLength({ min: 10, max: 10 })
+        .isLength({ min: 11, max: 11 })
         .withMessage('Valid Phone number is required'),
 ];
 
