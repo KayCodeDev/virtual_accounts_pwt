@@ -44,8 +44,10 @@ class NotificationController {
 
     __handleNotification = async (res, provider, reference, acct, amount, date, originator, description, response) => {
         try {
+            console.log("provider", provider)
+            console.log("account", acct)
             const account = await VirtualAccount.findOne({
-                where: { accountNumber: acct },
+                where: { accountNumber: acct, ProviderId: provider.id },
                 include: [
                     {
                         model: Channel,
@@ -53,11 +55,11 @@ class NotificationController {
                 ]
             });
 
+            console.log("account data", account)
+
             if (!account) {
                 res.status(400).send({ error: "Invalid virtual account" });
             } else {
-
-
                 let transactionId = "CLP-PWT-" + randGen(10) + getTime(new Date());
                 let feeCharge = ((amount * account.Channel.feeCharge) / 100);
                 if (feeCharge > account.Channel.feeCap) {
