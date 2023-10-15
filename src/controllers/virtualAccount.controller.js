@@ -314,6 +314,8 @@ class VirtualAccountController {
         const channel = req.channel;
         const { provider: providerCode, accountName, bvn, phoneNumber } = req.body;
 
+        let providerCodeData = providerCode == "gtbank" ? "gtbank_agency" : providerCode;
+
         try {
             let account = await VirtualAccount.findOne({
                 include: Provider,
@@ -324,13 +326,13 @@ class VirtualAccountController {
                         },
                         { ChannelId: channel.id },
                         {
-                            '$Provider.code$': providerCode,
+                            '$Provider.code$': providerCodeData,
                         },
                     ],
                 },
             });
 
-            const provider = await Provider.findOne({ where: { code: providerCode } });
+            const provider = await Provider.findOne({ where: { code: providerCodeData } });
 
             const settlementAccount = channel.SettlementAccounts.find((e) => e.ProviderId === provider.id);
 
@@ -357,7 +359,7 @@ class VirtualAccountController {
                 })
             }
 
-            return respondSuccess(res, "Virtual account created successfully", { accountNumber: account.accountNumber, accountName: account.accountName, bvn: account.bvn, phoneNumber: account.phoneNumber, Provider: { name: provider.name } });
+            return respondSuccess(res, "Virtual account created successfully", { accountNumber: account.accountNumber, accountName: account.accountName, bvn: account.bvn, phoneNumber: account.phoneNumber, Provider: { name: provider.name.replace(" Agency", "") } });
 
         } catch (e) {
             console.log(e)

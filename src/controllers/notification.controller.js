@@ -13,7 +13,14 @@ class NotificationController {
         checkValidation(req);
         console.log("Callback from Squad", req.body);
 
-        const provider = await Provider.findOne({ where: { code: "gtbank" } });
+        const provider = await Provider.findOne({
+            where: {
+                [Op.or]: [
+                    { code: "gtbank" },
+                    { code: "gtbank_agency" },
+                ],
+            },
+        });
 
         const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
 

@@ -95,6 +95,7 @@ exports.nowDate = (formatVal = "yyyy-MM-dd") => {
 exports.switchProviderCall = async (provider, channel, identifier, accountName, bvn, phoneNumber, settlementAccount) => {
     switch (provider.code) {
         case "gtbank":
+        case "gtbank_agency":
             return await squadcoService.createVirtualAccount(provider, identifier, accountName, phoneNumber, bvn, settlementAccount);
         case "globus":
             identifier = channel.prefix;
