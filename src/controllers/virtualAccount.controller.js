@@ -333,7 +333,9 @@ class VirtualAccountController {
             });
 
             const provider = await Provider.findOne({ where: { code: providerCodeData } });
-
+            if (!provider) {
+                return respondError(res, "Invalid Provider");
+            }
             const settlementAccount = channel.SettlementAccounts.find((e) => e.ProviderId === provider.id);
 
             if (!settlementAccount) {
