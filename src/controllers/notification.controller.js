@@ -35,7 +35,7 @@ class NotificationController {
 
         const provider = accountProvider.Provider;
 
-        const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
+        // const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
 
         // if (hash != req.headers['x-squad-signature']) {
         //     res.status(400).send({ error: "Invalid signature" });
