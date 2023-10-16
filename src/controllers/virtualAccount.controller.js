@@ -314,7 +314,7 @@ class VirtualAccountController {
         const channel = req.channel;
         const { provider: providerCode, accountName, bvn, phoneNumber } = req.body;
 
-        let providerCodeData = providerCode == "gtbank" ? "gtbank" : providerCode;
+        let providerCodeData = providerCode == "gtbank" ? "gtbank_agency" : providerCode;
 
         try {
             let account = await VirtualAccount.findOne({
