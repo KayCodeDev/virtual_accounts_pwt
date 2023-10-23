@@ -47,11 +47,7 @@ class VirtualAccountController {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
                     { accountName: { [Op.like]: `%${search}%` } },
-                    {
-                        '$Channel.channelType$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
+
                     {
                         '$Provider.code$': {
                             [Op.like]: `%${search}%`,
