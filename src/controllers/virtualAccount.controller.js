@@ -26,26 +26,49 @@ class VirtualAccountController {
             limit,
             order: [['createdAt', 'DESC']],
             include: [
-                { model: Channel, attributes: ['uuid', 'name', 'channelType'] },
-                { model: Provider, attributes: ['name', 'code'] },
+                {
+                    model: Channel, attributes: ['uuid', 'name', 'channelType'],
+                    where: {
+                        channelType: { [Op.like]: `%${search}%`, },
+                    },
+                },
+                {
+                    model: Provider, attributes: ['name', 'code'],
+                    where: {
+                        code: { [Op.like]: `%${search}%`, },
+                    },
+                    required: false,
+                },
             ],
             where: search ? {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
                     { accountName: { [Op.like]: `%${search}%` } },
-                    literal(`Channel.channelType LIKE '%${search}%'`),
-                    literal(`Provider.code LIKE '%${search}%'`),
+
                 ],
             } : null,
         });
 
         const totalItems = await VirtualAccount.count({
+            include: [
+                {
+                    model: Channel,
+                    where: {
+                        channelType: { [Op.like]: `%${search}%`, },
+                    },
+                },
+                {
+                    model: Provider,
+                    where: {
+                        code: { [Op.like]: `%${search}%`, },
+                    },
+                    required: false,
+                },
+            ],
             where: search ? {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
                     { accountName: { [Op.like]: `%${search}%` } },
-                    literal(`Channel.channelType LIKE '%${search}%'`),
-                    literal(`Provider.code LIKE '%${search}%'`),
                 ],
             } : null,
         });
@@ -70,31 +93,54 @@ class VirtualAccountController {
             limit,
             order: [['createdAt', 'DESC']],
             include: [
-                { model: Channel, attributes: ['uuid', 'name'] },
-                { model: VirtualAccount, attributes: ['accountNumber', 'accountName', 'bvn', 'received'] },
+                {
+                    model: Channel, attributes: ['uuid', 'name'],
+                    where: {
+                        [Op.or]: [
+                            { name: { [Op.like]: `%${search}%`, } },
+                            { uuid: { [Op.like]: `%${search}%`, } }
+                        ],
+                    }
+                },
+                {
+                    model: VirtualAccount, attributes: ['accountNumber', 'accountName', 'bvn', 'received'],
+                    where: {
+                        accountName: { [Op.like]: `%${search}%`, },
+                    },
+                },
             ],
             where: search ? {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
                     { reference: { [Op.like]: `%${search}%` } },
                     { transactionId: { [Op.like]: `%${search}%` } },
-                    literal(`Channel.name LIKE '%${search}%'`),
-                    literal(`Channel.uuid LIKE '%${search}%'`),
-                    literal(`VirtualAccount.accountName LIKE '%${search}%'`),
                 ],
             } : null,
         });
 
         const totalItems = await TransactionNotification.count({
+            include: [
+                {
+                    model: Channel,
+                    where: {
+                        [Op.or]: [
+                            { name: { [Op.like]: `%${search}%`, } },
+                            { uuid: { [Op.like]: `%${search}%`, } }
+                        ],
+                    }
+                },
+                {
+                    model: VirtualAccount,
+                    where: {
+                        accountName: { [Op.like]: `%${search}%`, },
+                    },
+                },
+            ],
             where: search ? {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
                     { reference: { [Op.like]: `%${search}%` } },
                     { transactionId: { [Op.like]: `%${search}%` } },
-                    literal(`Channel.name LIKE '%${search}%'`),
-                    literal(`Channel.uuid LIKE '%${search}%'`),
-                    literal(`VirtualAccount.accountName LIKE '%${search}%'`),
-
                 ],
             } : null,
         });
@@ -119,17 +165,29 @@ class VirtualAccountController {
             limit,
             order: [['createdAt', 'DESC']],
             include: [
-                { model: Provider, attributes: ['code', 'name', 'uuid'] },
+                {
+                    model: Provider, attributes: ['code', 'name', 'uuid'],
+                    where: {
+                        code: { [Op.like]: `%${search}%`, },
+                    },
+                },
             ],
             where: search ? {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
-                    literal(`Provider.code LIKE '%${search}%'`),
                 ],
             } : null,
         });
 
         const totalItems = await ProviderNotification.count({
+            include: [
+                {
+                    model: Provider,
+                    where: {
+                        code: { [Op.like]: `%${search}%`, },
+                    },
+                },
+            ],
             where: search ? {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
