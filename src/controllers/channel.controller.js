@@ -12,7 +12,7 @@ dotenv.config();
 class ChannelController {
     getAllChannels = async (req, res, next) => {
         const page = req.query.page ?? 1;
-        const perpage = req.query.perpage ?? 15;
+        const limit = req.query.perpage ?? 15;
         const search = req.query.search ?? null;
 
         const offset = (page - 1) * perpage;
@@ -29,7 +29,7 @@ class ChannelController {
                 ]
             }],
             offset,
-            limit: perpage,
+            limit,
             order: [['createdAt', 'DESC']],
             where: search ? {
                 [Op.or]: [
@@ -50,9 +50,9 @@ class ChannelController {
             } : null,
         });
 
-        const count = channelList.length;
+        const count = channels.length;
 
-        const totalPages = Math.ceil(totalItems / perpage);
+        const totalPages = Math.ceil(totalItems / limit);
 
         return respondSuccess(res, "channel list retrieved", { channels, currentPage: page, perPage: count, total: totalItems, pages: totalPages });
     };
