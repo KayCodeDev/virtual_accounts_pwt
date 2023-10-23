@@ -30,18 +30,24 @@ class NotificationController {
             ]
         });
 
-        const provider = accountProvider.Provider;
-
-        providerNotification.ProviderId = provider.id;
-        await providerNotification.save();
-
-        const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
-
-        if (hash != req.headers['x-squad-signature']) {
+        if (!accountProvider) {
             providerNotification.update({ appstatus: "failed" })
-            res.status(400).send({ error: "Invalid signature" });
+            res.status(400).send({ error: "No account found" });
         } else {
-            return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body, providerNotification);
+
+            const provider = accountProvider.Provider;
+
+            providerNotification.ProviderId = provider.id;
+            await providerNotification.save();
+
+            const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
+
+            if (hash != req.headers['x-squad-signature']) {
+                providerNotification.update({ appstatus: "failed" })
+                res.status(400).send({ error: "Invalid signature" });
+            } else {
+                return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body, providerNotification);
+            }
         }
     }
 
