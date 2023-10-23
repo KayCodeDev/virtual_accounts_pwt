@@ -28,15 +28,15 @@ class VirtualAccountController {
             include: [
                 {
                     model: Channel, attributes: ['uuid', 'name', 'channelType'],
-                    where: {
+                    where: search ? {
                         channelType: { [Op.like]: `%${search}%`, },
-                    },
+                    } : null,
                 },
                 {
                     model: Provider, attributes: ['name', 'code'],
-                    where: {
+                    where: search ? {
                         code: { [Op.like]: `%${search}%`, },
-                    },
+                    } : null,
                     required: false,
                 },
             ],
@@ -53,15 +53,15 @@ class VirtualAccountController {
             include: [
                 {
                     model: Channel, attributes: ['uuid', 'name', 'channelType'],
-                    where: {
+                    where: search ? {
                         channelType: { [Op.like]: `%${search}%`, },
-                    },
+                    } : null,
                 },
                 {
                     model: Provider, attributes: ['name', 'code'],
-                    where: {
+                    where: search ? {
                         code: { [Op.like]: `%${search}%`, },
-                    },
+                    } : null,
                     required: false,
                 },
             ],
@@ -95,18 +95,18 @@ class VirtualAccountController {
             include: [
                 {
                     model: Channel, attributes: ['uuid', 'name'],
-                    where: {
+                    where: search ? {
                         [Op.or]: [
                             { name: { [Op.like]: `%${search}%`, } },
                             { uuid: { [Op.like]: `%${search}%`, } }
                         ],
-                    }
+                    } : null
                 },
                 {
                     model: VirtualAccount, attributes: ['accountNumber', 'accountName', 'bvn', 'received'],
-                    where: {
+                    where: search ? {
                         accountName: { [Op.like]: `%${search}%`, },
-                    },
+                    } : null,
                 },
             ],
             where: search ? {
@@ -122,18 +122,18 @@ class VirtualAccountController {
             include: [
                 {
                     model: Channel, attributes: ['uuid', 'name'],
-                    where: {
+                    where: search ? {
                         [Op.or]: [
                             { name: { [Op.like]: `%${search}%`, } },
                             { uuid: { [Op.like]: `%${search}%`, } }
                         ],
-                    }
+                    } : null
                 },
                 {
                     model: VirtualAccount, attributes: ['accountNumber', 'accountName', 'bvn', 'received'],
-                    where: {
+                    where: search ? {
                         accountName: { [Op.like]: `%${search}%`, },
-                    },
+                    } : null,
                 },
             ],
             where: search ? {
@@ -167,9 +167,9 @@ class VirtualAccountController {
             include: [
                 {
                     model: Provider, attributes: ['code', 'name', 'uuid'],
-                    where: {
+                    where: search ? {
                         code: { [Op.like]: `%${search}%`, },
-                    },
+                    } : null,
                 },
             ],
             where: search ? {
@@ -183,9 +183,9 @@ class VirtualAccountController {
             include: [
                 {
                     model: Provider, attributes: ['code', 'name', 'uuid'],
-                    where: {
+                    where: search ? {
                         code: { [Op.like]: `%${search}%`, },
-                    },
+                    } : null,
                 },
             ],
             where: search ? {
