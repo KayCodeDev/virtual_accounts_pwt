@@ -2,7 +2,7 @@
 const dotenv = require('dotenv');
 const { respondSuccess, respondError, checkValidation, switchProviderCall, randGen } = require('../utils/common.utils');
 const Provider = require('../models/provider.model');
-const { Op } = require("sequelize");
+const { Op, literal } = require("sequelize");
 const VirtualAccount = require('../models/virtualAccount.model');
 const Channel = require('../models/channel.model');
 const SettlementAccount = require('../models/settlementAccount.model');
@@ -33,11 +33,8 @@ class VirtualAccountController {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
                     { accountName: { [Op.like]: `%${search}%` } },
-                    {
-                        '$Provider.code$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
+                    literal(`Channel.channelType LIKE '%${search}%'`),
+                    literal(`Provider.code LIKE '%${search}%'`),
                 ],
             } : null,
         });
@@ -47,12 +44,8 @@ class VirtualAccountController {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
                     { accountName: { [Op.like]: `%${search}%` } },
-
-                    {
-                        '$Provider.code$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
+                    literal(`Channel.channelType LIKE '%${search}%'`),
+                    literal(`Provider.code LIKE '%${search}%'`),
                 ],
             } : null,
         });
@@ -85,21 +78,9 @@ class VirtualAccountController {
                     { accountNumber: { [Op.like]: `%${search}%` } },
                     { reference: { [Op.like]: `%${search}%` } },
                     { transactionId: { [Op.like]: `%${search}%` } },
-                    {
-                        '$Channel.name$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
-                    {
-                        '$Channel.uuid$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
-                    {
-                        '$VirtualAccount.accountName$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
+                    literal(`Channel.name LIKE '%${search}%'`),
+                    literal(`Channel.uuid LIKE '%${search}%'`),
+                    literal(`VirtualAccount.accountName LIKE '%${search}%'`),
                 ],
             } : null,
         });
@@ -110,21 +91,10 @@ class VirtualAccountController {
                     { accountNumber: { [Op.like]: `%${search}%` } },
                     { reference: { [Op.like]: `%${search}%` } },
                     { transactionId: { [Op.like]: `%${search}%` } },
-                    {
-                        '$Channel.name$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
-                    {
-                        '$Channel.uuid$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
-                    {
-                        '$VirtualAccount.accountName$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
+                    literal(`Channel.name LIKE '%${search}%'`),
+                    literal(`Channel.uuid LIKE '%${search}%'`),
+                    literal(`VirtualAccount.accountName LIKE '%${search}%'`),
+
                 ],
             } : null,
         });
@@ -154,12 +124,7 @@ class VirtualAccountController {
             where: search ? {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
-                    {
-                        '$Provider.code$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
-
+                    literal(`Provider.code LIKE '%${search}%'`),
                 ],
             } : null,
         });
@@ -168,12 +133,7 @@ class VirtualAccountController {
             where: search ? {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
-                    {
-                        '$Provider.code$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
-
+                    literal(`Provider.code LIKE '%${search}%'`),
                 ],
             } : null,
         });
