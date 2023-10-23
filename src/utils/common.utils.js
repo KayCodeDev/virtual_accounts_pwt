@@ -11,11 +11,11 @@ exports.sendPost = async (url, data, options) => {
     return axios.post(url, data, options)
         .then((response) => {
             console.log(response.data);
-            return response.data;
+            return response;
         })
         .catch((error) => {
             console.error(error.response.data);
-            return error.response.data;
+            return error.response;
         });
 }
 
@@ -27,7 +27,7 @@ exports.sendGet = async (url, options) => {
         })
         .catch((error) => {
             console.error(error.data);
-            return error.data;
+            return error;
         });
 }
 

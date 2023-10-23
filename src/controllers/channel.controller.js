@@ -16,7 +16,7 @@ class ChannelController {
         const search = req.query.search ?? null;
 
         const offset = (page - 1) * perpage;
-        let channelList = await Channel.findAll({
+        let channels = await Channel.findAll({
             include: [{
                 model: SettlementAccount,
                 attributes: ['uuid', 'accountNumber', 'accountName', 'status'],
@@ -27,8 +27,7 @@ class ChannelController {
 
                     }
                 ]
-            }
-            ],
+            }],
             offset,
             limit: perpage,
             order: [['createdAt', 'DESC']],
@@ -40,7 +39,22 @@ class ChannelController {
                 ],
             } : null,
         });
-        return respondSuccess(res, "channel list retrieved", { channels: channelList });
+
+        const totalItems = await Channel.count({
+            where: search ? {
+                [Op.or]: [
+                    { name: { [Op.like]: `%${search}%` } },
+                    { email: { [Op.like]: `%${search}%` } },
+                    { channelType: { [Op.like]: `%${search}%` } },
+                ],
+            } : null,
+        });
+
+        const count = channelList.length;
+
+        const totalPages = Math.ceil(totalItems / perpage);
+
+        return respondSuccess(res, "channel list retrieved", { channels, currentPage: page, perPage: count, total: totalItems, pages: totalPages });
     };
 
     addChannel = async (req, res, next) => {

@@ -20,6 +20,8 @@ router.get('/providers', auth('ADMIN'), awaitHandlerFactory(providerController.g
 router.post('/providers/add', auth('ADMIN'), addProviderRequest, awaitHandlerFactory(providerController.addProvider));
 router.post('/providers/update/:uuid', auth('ADMIN'), awaitHandlerFactory(providerController.updateProvider));
 
+router.get('/accounts/transactions/notifications', auth('ADMIN'), awaitHandlerFactory(virtualAccountController.getAllProviderTransNotification));
+
 router.get('/accounts', auth('ADMIN'), awaitHandlerFactory(virtualAccountController.getAllAccount));
 router.get('/accounts/transactions', auth('ADMIN'), awaitHandlerFactory(virtualAccountController.getAllAccountTrans));
 router.post('/accounts/add', auth('ADMIN'), addPosVARequest, awaitHandlerFactory(virtualAccountController.addPosVirtualAccount));

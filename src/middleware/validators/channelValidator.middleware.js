@@ -74,6 +74,10 @@ exports.updateChannelRequest = [
         .optional()
         .isNumeric()
         .withMessage('Fee charge must be numeric'),
+    body('feeCap')
+        .optional()
+        .isNumeric()
+        .withMessage('Fee cap must be numeric'),
     body('webhookUrl')
         .optional()
         .isURL()

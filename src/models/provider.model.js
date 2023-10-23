@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require("./sequelize.config");
 const VirtualAccount = require('./virtualAccount.model');
 const SettlementAccount = require('./settlementAccount.model');
+const ProviderNotification = require('./providerNotifications.model')
 
 const Provider = sequelize.define('Provider', {
     uuid: {
@@ -40,6 +41,9 @@ const Provider = sequelize.define('Provider', {
 
 Provider.hasMany(VirtualAccount);
 VirtualAccount.belongsTo(Provider)
+
+Provider.hasMany(ProviderNotification);
+ProviderNotification.belongsTo(Provider)
 
 Provider.hasMany(SettlementAccount);
 SettlementAccount.belongsTo(Provider);

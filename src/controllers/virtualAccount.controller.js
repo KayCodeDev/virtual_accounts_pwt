@@ -7,6 +7,7 @@ const VirtualAccount = require('../models/virtualAccount.model');
 const Channel = require('../models/channel.model');
 const SettlementAccount = require('../models/settlementAccount.model');
 const TransactionNotification = require('../models/transactionNotification.model');
+const ProviderNotification = require('../models/providerNotifications.model');
 dotenv.config();
 
 
@@ -46,9 +47,30 @@ class VirtualAccountController {
             } : null,
         });
 
+        const totalItems = await VirtualAccount.count({
+            where: search ? {
+                [Op.or]: [
+                    { accountNumber: { [Op.like]: `%${search}%` } },
+                    { accountName: { [Op.like]: `%${search}%` } },
+                    {
+                        '$Channel.channelType$': {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+                    {
+                        '$Provider.code$': {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+                ],
+            } : null,
+        });
+
         const count = accounts.length;
 
-        return respondSuccess(res, "Virtual account list retrieved", { data: accounts, currentPage: page, perPage: count });
+        const totalPages = Math.ceil(totalItems / perpage);
+
+        return respondSuccess(res, "Virtual account list retrieved", { accounts, currentPage: page, perPage: count, total: totalItems, pages: totalPages });
     };
 
     getAllAccountTrans = async (req, res, next) => {
@@ -91,9 +113,85 @@ class VirtualAccountController {
             } : null,
         });
 
+        const totalItems = await TransactionNotification.count({
+            where: search ? {
+                [Op.or]: [
+                    { accountNumber: { [Op.like]: `%${search}%` } },
+                    { reference: { [Op.like]: `%${search}%` } },
+                    { transactionId: { [Op.like]: `%${search}%` } },
+                    {
+                        '$Channel.name$': {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+                    {
+                        '$Channel.uuid$': {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+                    {
+                        '$VirtualAccount.accountName$': {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+                ],
+            } : null,
+        });
+
         const count = transactions.length;
 
-        return respondSuccess(res, "Transaction list retrieved", { data: transactions, currentPage: page, perPage: count });
+        const totalPages = Math.ceil(totalItems / perpage);
+
+        return respondSuccess(res, "Transaction list retrieved", { transactions, currentPage: page, perPage: count, total: totalItems, pages: totalPages });
+    };
+
+    getAllProviderTransNotification = async (req, res, next) => {
+
+        const page = parseInt(req.query.page ?? 1);
+        const limit = parseInt(req.query.perpage ?? 15);
+        const search = req.query.search ?? null;
+
+        const offset = (page - 1) * limit;
+
+        let notifications = await ProviderNotification.findAll({
+            offset,
+            limit,
+            order: [['createdAt', 'DESC']],
+            include: [
+                { model: Provider, attributes: ['code', 'name', 'uuid'] },
+            ],
+            where: search ? {
+                [Op.or]: [
+                    { accountNumber: { [Op.like]: `%${search}%` } },
+                    {
+                        '$Provider.code$': {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+
+                ],
+            } : null,
+        });
+
+        const totalItems = await ProviderNotification.count({
+            where: search ? {
+                [Op.or]: [
+                    { accountNumber: { [Op.like]: `%${search}%` } },
+                    {
+                        '$Provider.code$': {
+                            [Op.like]: `%${search}%`,
+                        },
+                    },
+
+                ],
+            } : null,
+        });
+
+        const count = notifiations.length;
+
+        const totalPages = Math.ceil(totalItems / perpage);
+
+        return respondSuccess(res, "Transaction list retrieved", { notifications, currentPage: page, perPage: count, total: totalItems, pages: totalPages });
     };
 
     getPosAccount = async (req, res, next) => {

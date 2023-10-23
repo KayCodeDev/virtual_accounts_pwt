@@ -20,7 +20,9 @@ class SquadcoService {
 
         console.log("sending request to GTBank Squadco for virtual account")
 
-        const response = await common.sendPost(url, data, { headers });
+        const result = await common.sendPost(url, data, { headers });
+
+        const response = result.data;
 
         if (response?.hasOwnProperty('success') && response.success) {
             return { error: false, account: response.data.virtual_account_number };

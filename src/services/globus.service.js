@@ -33,11 +33,14 @@ class GlobusService {
 
         console.log("sending request to Globus for virtual account", data)
 
-        const response = await common.sendPost(url, data, { headers });
+        const result = await common.sendPost(url, data, { headers });
+
+        const response = result.data;
 
         console.log("Response from Globus for virtual account", response)
 
         console.log(response);
+
         if (response?.hasOwnProperty('responseCode') && response.responseCode == "00") {
             return { error: false, account: response.result.virtualAccount ?? account };
         }

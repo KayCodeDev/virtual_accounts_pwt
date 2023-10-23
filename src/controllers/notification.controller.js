@@ -6,6 +6,7 @@ const Channel = require('../models/channel.model');
 const { getTime } = require('date-fns');
 const TransactionNotification = require('../models/transactionNotification.model');
 const notificationService = require('../services/notification.service');
+const ProviderNotification = require('../models/providerNotifications.model');
 
 
 class NotificationController {
@@ -14,6 +15,11 @@ class NotificationController {
         console.log("Callback from Squad", req.body);
         const { transaction_reference: reference, virtual_account_number: account, principal_amount: amount, transaction_date: date, sender_name: originator, remarks: description } = req.body;
 
+        let providerNotification = await ProviderNotification.create({
+            ip: req.ip,
+            notification: req.body,
+            accountNumber: account
+        });
 
         const accountProvider = await VirtualAccount.findOne({
             where: { accountNumber: account },
@@ -24,24 +30,19 @@ class NotificationController {
             ]
         });
 
-        // const provider = await Provider.findOne({
-        //     where: {
-        //         [Op.or]: [
-        //             { code: "gtbank" },
-        //             { code: "gtbank_agency" },
-        //         ],
-        //     },
-        // });
-
         const provider = accountProvider.Provider;
 
-        // const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
+        providerNotification.ProviderId = provider.id;
+        await providerNotification.save();
 
-        // if (hash != req.headers['x-squad-signature']) {
-        //     res.status(400).send({ error: "Invalid signature" });
-        // } else {
-        return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body);
-        // }
+        const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
+
+        if (hash != req.headers['x-squad-signature']) {
+            providerNotification.update({ appstatus: "failed" })
+            res.status(400).send({ error: "Invalid signature" });
+        } else {
+            return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body, providerNotification);
+        }
     }
 
     fromGlobus = async (req, res, next) => {
@@ -49,17 +50,27 @@ class NotificationController {
         console.log("Callback from Globus", req.body);
         const provider = await Provider.findOne({ where: { code: "globus" } });
 
+        let providerNotification = await ProviderNotification.create({
+            ip: req.ip,
+            notification: req.body,
+            ProviderId: provider.id,
+        });
+
+
         if ((req.headers['clientid'] ?? req.headers['ClientID']) == provider.credentials.cliendID) {
             const { TransID: reference, VirtualAccount: account, Amount: amount, TransactionDate: date, NubanAccountName: originator, narration: description } = req.body;
             originator = req.body.NubanAccount + "|" + originator;
 
-            return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body);
+            providerNotification.update({ accountNumber: account })
+
+            return this.__handleNotification(res, provider, reference, account, parseFloat(amount), formatDate(date), originator, description, req.body, providerNotification);
         } else {
             res.status(400).send({ error: "Invalid Cliend ID" });
+            providerNotification.update({ appstatus: "failed" })
         }
     }
 
-    __handleNotification = async (res, provider, reference, acct, amount, date, originator, description, response) => {
+    __handleNotification = async (res, provider, reference, acct, amount, date, originator, description, response, providerNotification) => {
         try {
             const account = await VirtualAccount.findOne({
                 where: { accountNumber: acct, ProviderId: provider.id },
@@ -71,6 +82,7 @@ class NotificationController {
             });
 
             if (!account) {
+                providerNotification.update({ appstatus: "failed" })
                 res.status(400).send({ error: "Invalid virtual account" });
             } else {
                 let transactionId = "CLP-PWT-" + randGen(10) + getTime(new Date());
@@ -119,11 +131,13 @@ class NotificationController {
                     ],
                 });
 
+                providerNotification.update({ appstatus: "processed" })
+
                 if (account.tid != null && account.tid.length == 8) {
-                    notificationService.sendSocket(account, notification);
+                    notificationService.sendSocket(account, notification, providerNotification);
                 }
                 if (account.Channel.webhookUrl != null) {
-                    notificationService.sendWebhook(account, notification);
+                    notificationService.sendWebhook(account, notification, providerNotification);
                 }
             }
         } catch (e) {
