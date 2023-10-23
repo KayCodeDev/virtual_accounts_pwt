@@ -34,11 +34,6 @@ class VirtualAccountController {
                     { accountNumber: { [Op.like]: `%${search}%` } },
                     { accountName: { [Op.like]: `%${search}%` } },
                     {
-                        '$Channel.channelType$': {
-                            [Op.like]: `%${search}%`,
-                        },
-                    },
-                    {
                         '$Provider.code$': {
                             [Op.like]: `%${search}%`,
                         },
@@ -68,7 +63,7 @@ class VirtualAccountController {
 
         const count = accounts.length;
 
-        const totalPages = Math.ceil(totalItems / perpage);
+        const totalPages = Math.ceil(totalItems / limit);
 
         return respondSuccess(res, "Virtual account list retrieved", { accounts, currentPage: page, perPage: count, total: totalItems, pages: totalPages });
     };
@@ -140,7 +135,7 @@ class VirtualAccountController {
 
         const count = transactions.length;
 
-        const totalPages = Math.ceil(totalItems / perpage);
+        const totalPages = Math.ceil(totalItems / limit);
 
         return respondSuccess(res, "Transaction list retrieved", { transactions, currentPage: page, perPage: count, total: totalItems, pages: totalPages });
     };
@@ -187,9 +182,9 @@ class VirtualAccountController {
             } : null,
         });
 
-        const count = notifiations.length;
+        const count = notifications.length;
 
-        const totalPages = Math.ceil(totalItems / perpage);
+        const totalPages = Math.ceil(totalItems / limit);
 
         return respondSuccess(res, "Transaction list retrieved", { notifications, currentPage: page, perPage: count, total: totalItems, pages: totalPages });
     };
