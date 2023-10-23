@@ -26,7 +26,7 @@ class VirtualAccountController {
             limit,
             order: [['createdAt', 'DESC']],
             include: [
-                { model: Channel, attributes: ['uuid', 'name'] },
+                { model: Channel, attributes: ['uuid', 'name', 'channelType'] },
                 { model: Provider, attributes: ['name', 'code'] },
             ],
             where: search ? {
