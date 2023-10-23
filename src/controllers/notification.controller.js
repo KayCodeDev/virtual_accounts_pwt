@@ -43,6 +43,8 @@ class NotificationController {
             const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
 
             if (hash != req.headers['x-squad-signature']) {
+                console.log("Invalid signature")
+                console.log(hash + " : " + req.headers['x-squad-signature'])
                 providerNotification.update({ appstatus: "failed" })
                 res.status(400).send({ error: "Invalid signature" });
             } else {
