@@ -52,13 +52,13 @@ class VirtualAccountController {
         const totalItems = await VirtualAccount.count({
             include: [
                 {
-                    model: Channel,
+                    model: Channel, attributes: ['uuid', 'name', 'channelType'],
                     where: {
                         channelType: { [Op.like]: `%${search}%`, },
                     },
                 },
                 {
-                    model: Provider,
+                    model: Provider, attributes: ['name', 'code'],
                     where: {
                         code: { [Op.like]: `%${search}%`, },
                     },
@@ -121,7 +121,7 @@ class VirtualAccountController {
         const totalItems = await TransactionNotification.count({
             include: [
                 {
-                    model: Channel,
+                    model: Channel, attributes: ['uuid', 'name'],
                     where: {
                         [Op.or]: [
                             { name: { [Op.like]: `%${search}%`, } },
@@ -130,7 +130,7 @@ class VirtualAccountController {
                     }
                 },
                 {
-                    model: VirtualAccount,
+                    model: VirtualAccount, attributes: ['accountNumber', 'accountName', 'bvn', 'received'],
                     where: {
                         accountName: { [Op.like]: `%${search}%`, },
                     },
@@ -182,7 +182,7 @@ class VirtualAccountController {
         const totalItems = await ProviderNotification.count({
             include: [
                 {
-                    model: Provider,
+                    model: Provider, attributes: ['code', 'name', 'uuid'],
                     where: {
                         code: { [Op.like]: `%${search}%`, },
                     },
@@ -191,7 +191,6 @@ class VirtualAccountController {
             where: search ? {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
-                    literal(`Provider.code LIKE '%${search}%'`),
                 ],
             } : null,
         });
