@@ -30,7 +30,7 @@ class NotificationController {
             ]
         });
 
-        if (!accountProvider) {
+        if (accountProvider == null) {
             providerNotification.update({ appstatus: "failed" })
             res.status(400).send({ error: "No account found" });
         } else {
