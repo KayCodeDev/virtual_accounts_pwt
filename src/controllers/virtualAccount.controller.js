@@ -27,24 +27,16 @@ class VirtualAccountController {
             order: [['createdAt', 'DESC']],
             include: [
                 {
-                    model: Channel, attributes: ['uuid', 'name', 'channelType'],
-                    where: search ? {
-                        channelType: { [Op.like]: `%${search}%`, },
-                    } : null,
+                    model: Channel, attributes: ['uuid', 'name', 'channelType']
                 },
                 {
-                    model: Provider, attributes: ['name', 'code'],
-                    where: search ? {
-                        code: { [Op.like]: `%${search}%`, },
-                    } : null,
-                    required: false,
+                    model: Provider, attributes: ['name', 'code']
                 },
             ],
             where: search ? {
                 [Op.or]: [
                     { accountNumber: { [Op.like]: `%${search}%` } },
                     { accountName: { [Op.like]: `%${search}%` } },
-
                 ],
             } : null,
         });
@@ -52,17 +44,10 @@ class VirtualAccountController {
         const totalItems = await VirtualAccount.count({
             include: [
                 {
-                    model: Channel, attributes: ['uuid', 'name', 'channelType'],
-                    where: search ? {
-                        channelType: { [Op.like]: `%${search}%`, },
-                    } : null,
+                    model: Channel, attributes: ['uuid', 'name', 'channelType']
                 },
                 {
-                    model: Provider, attributes: ['name', 'code'],
-                    where: search ? {
-                        code: { [Op.like]: `%${search}%`, },
-                    } : null,
-                    required: false,
+                    model: Provider, attributes: ['name', 'code']
                 },
             ],
             where: search ? {
@@ -94,19 +79,10 @@ class VirtualAccountController {
             order: [['createdAt', 'DESC']],
             include: [
                 {
-                    model: Channel, attributes: ['uuid', 'name'],
-                    where: search ? {
-                        [Op.or]: [
-                            { name: { [Op.like]: `%${search}%`, } },
-                            { uuid: { [Op.like]: `%${search}%`, } }
-                        ],
-                    } : null
+                    model: Channel, attributes: ['uuid', 'name']
                 },
                 {
-                    model: VirtualAccount, attributes: ['accountNumber', 'accountName', 'bvn', 'received'],
-                    where: search ? {
-                        accountName: { [Op.like]: `%${search}%`, },
-                    } : null,
+                    model: VirtualAccount, attributes: ['accountNumber', 'accountName', 'bvn', 'received']
                 },
             ],
             where: search ? {
@@ -121,19 +97,10 @@ class VirtualAccountController {
         const totalItems = await TransactionNotification.count({
             include: [
                 {
-                    model: Channel, attributes: ['uuid', 'name'],
-                    where: search ? {
-                        [Op.or]: [
-                            { name: { [Op.like]: `%${search}%`, } },
-                            { uuid: { [Op.like]: `%${search}%`, } }
-                        ],
-                    } : null
+                    model: Channel, attributes: ['uuid', 'name']
                 },
                 {
-                    model: VirtualAccount, attributes: ['accountNumber', 'accountName', 'bvn', 'received'],
-                    where: search ? {
-                        accountName: { [Op.like]: `%${search}%`, },
-                    } : null,
+                    model: VirtualAccount, attributes: ['accountNumber', 'accountName', 'bvn', 'received']
                 },
             ],
             where: search ? {
@@ -166,10 +133,7 @@ class VirtualAccountController {
             order: [['createdAt', 'DESC']],
             include: [
                 {
-                    model: Provider, attributes: ['code', 'name', 'uuid'],
-                    where: search ? {
-                        code: { [Op.like]: `%${search}%`, },
-                    } : null,
+                    model: Provider, attributes: ['code', 'name', 'uuid']
                 },
             ],
             where: search ? {
@@ -182,10 +146,7 @@ class VirtualAccountController {
         const totalItems = await ProviderNotification.count({
             include: [
                 {
-                    model: Provider, attributes: ['code', 'name', 'uuid'],
-                    where: search ? {
-                        code: { [Op.like]: `%${search}%`, },
-                    } : null,
+                    model: Provider, attributes: ['code', 'name', 'uuid']
                 },
             ],
             where: search ? {
