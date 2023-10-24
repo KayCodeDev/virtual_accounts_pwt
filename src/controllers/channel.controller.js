@@ -15,7 +15,7 @@ class ChannelController {
         const limit = req.query.perpage ?? 15;
         const search = req.query.search ?? null;
 
-        const offset = (page - 1) * perpage;
+        const offset = (page - 1) * limit;
         let channels = await Channel.findAll({
             include: [{
                 model: SettlementAccount,
