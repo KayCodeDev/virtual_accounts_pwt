@@ -11,8 +11,8 @@ dotenv.config();
 
 class ChannelController {
     getAllChannels = async (req, res, next) => {
-        const page = req.query.page ?? 1;
-        const limit = req.query.perpage ?? 15;
+        const page = parseInt(req.query.page ?? 1);
+        const limit = parseInt(req.query.perpage ?? 15);
         const search = req.query.search ?? null;
 
         const offset = (page - 1) * limit;
