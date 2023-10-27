@@ -59,7 +59,7 @@ class ChannelController {
 
     addChannel = async (req, res, next) => {
         checkValidation(req);
-        const { name, email, channelType, webhookUrl, bearer, feeCharge, prefix } = req.body;
+        const { name, email, channelType, webhookUrl, bearer, feeCharge, feeCap, prefix } = req.body;
 
         // if (channelType == "merchant") {
         //     if (await Channel.findOne({ where: { channelType } })) {
