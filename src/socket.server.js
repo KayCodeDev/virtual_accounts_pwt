@@ -20,6 +20,10 @@ class SocketServer {
                             const key = `${socket.remoteAddress}:${socket.remotePort}`;
                             socketManager.addSocket(key, jsonData.tid, socket);
                             socket.write(`Connected from ${socket.remoteAddress}:${socket.remotePort}`);
+                        } else if (jsonData.hasOwnProperty('action') && jsonData.action === "ping" && jsonData.hasOwnProperty('tid')) {
+                            const key = `${socket.remoteAddress}:${socket.remotePort}`;
+                            socketManager.updateSocketByTID(key, jsonData.tid, socket);
+                            socket.write(`pong`);
                         } else {
                             socket.write(`Unable to connect, expected action not sent. Attempted to connected from ${socket.remoteAddress}:${socket.remotePort}`);
                             socket.end();

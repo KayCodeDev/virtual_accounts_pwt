@@ -33,6 +33,22 @@ class SocketManager {
         return undefined;
     }
 
+    updateSocketByTID(key, tid, socket) {
+        const index = this.sockets.findIndex(item => item.tid === tid);
+
+        const data = {
+            key: key,
+            socket: socket,
+            tid: tid
+        }
+
+        if (index !== -1) {
+            this.sockets.splice(index, 1);
+        }
+
+        this.sockets.push(data);
+    }
+
     getSocketByKey(key) {
         const index = this.sockets.findIndex(item => item.key === key);
         if (index !== -1) {
