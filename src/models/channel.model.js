@@ -3,13 +3,10 @@ const sequelize = require("./sequelize.config");
 const VirtualAccount = require('./virtualAccount.model');
 const SettlementAccount = require('./settlementAccount.model');
 const TransactionNotification = require('./transactionNotification.model');
+const { commonAttributes } = require('./attributes');
 
 const Channel = sequelize.define('Channel', {
-
-    uuid: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4
-    },
+    ...commonAttributes,
     name: {
         type: DataTypes.STRING,
         allowNull: false,

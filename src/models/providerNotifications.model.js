@@ -1,11 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require("./sequelize.config");
+const { commonAttributes } = require('./attributes');
 
 const ProviderNotification = sequelize.define('ProviderNotification', {
-    uuid: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4
-    },
+    ...commonAttributes,
     ip: {
         type: DataTypes.STRING,
     },

@@ -1,6 +1,8 @@
 const { body } = require('express-validator');
 const Provider = require('../../models/provider.model');
-const Channel = require('../../models/channel.model')
+const Channel = require('../../models/channel.model');
+const logger = require('../../utils/logger.utils');
+const { isValidEmail, isValidDate } = require('../../utils/common.utils');
 
 
 exports.addPosVARequest = [
@@ -26,6 +28,41 @@ exports.addPosVARequest = [
         .withMessage('Phone number is required')
         .isMobilePhone()
         .withMessage('Invalid phone number'),
+    body('email')
+        .custom(async (value, { req }) => {
+            if (["gtbank_agency"].includes(req.body.provider) && (value == undefined || value == null || value == "")) {
+                throw new Error('Email is required');
+            }
+            if (!await isValidEmail(value)) {
+                throw new Error('Invalid email');
+            }
+        }),
+    body('dob')
+        .custom(async (value, { req }) => {
+            if (["gtbank_agency"].includes(req.body.provider) && (value == undefined || value == null || value == "")) {
+                throw new Error('Date of birth is required');
+            }
+            if (!await isValidDate(value, "MM/DD/YYYY")) {
+                throw new Error('Invalid Date of Birth. DOB must match format MM/DD/YYYY');
+            }
+        }),
+    body('address')
+        .custom(async (value, { req }) => {
+            if (["gtbank_agency"].includes(req.body.provider) && (value == undefined || value == null || value == "")) {
+                throw new Error('Address is required');
+            }
+        }),
+    body('gender')
+        .custom(async (value, { req }) => {
+            if (["gtbank_agency"].includes(req.body.provider)) {
+                if (value == undefined || value == null || value == "") {
+                    throw new Error('Gender is required');
+                }
+                if (!["male", "female"].includes(value)) {
+                    throw new Error('Invalid gender');
+                }
+            }
+        }),
     body('tid')
         .exists()
         .withMessage('Terminal ID is required')
@@ -49,7 +86,13 @@ exports.addVARequest = [
         }),
     body('accountName')
         .exists()
-        .withMessage('Account name is required'),
+        .withMessage('Account name is required')
+        .custom((value, { req }) => {
+            const split = value.split(' ');
+            if (split.length < 2) {
+                throw new Error('Invalid account name. Account must be firstname and lastname');
+            }
+        }),
     body('bvn')
         .exists()
         .withMessage('BVN is required')
@@ -59,7 +102,42 @@ exports.addVARequest = [
         .exists()
         .withMessage('Phone number is required')
         .isMobilePhone()
-        .withMessage('Invalid phone number')
+        .withMessage('Invalid phone number'),
+    body('email')
+        .custom(async (value, { req }) => {
+            if (["gtbank_agency"].includes(req.body.provider) && (value == undefined || value == null || value == "")) {
+                throw new Error('Email is required');
+            }
+            if (!await isValidEmail(value)) {
+                throw new Error('Invalid email');
+            }
+        }),
+    body('dob')
+        .custom(async (value, { req }) => {
+            if (["gtbank_agency"].includes(req.body.provider) && (value == undefined || value == null || value == "")) {
+                throw new Error('Date of birth is required');
+            }
+            if (!await isValidDate(value, "MM/DD/YYYY") == false) {
+                throw new Error('Invalid Date of Birth. DOB must match format MM/DD/YYYY');
+            }
+        }),
+    body('address')
+        .custom(async (value, { req }) => {
+            if (["gtbank_agency"].includes(req.body.provider) && (value == undefined || value == null || value == "")) {
+                throw new Error('Address is required');
+            }
+        }),
+    body('gender')
+        .custom(async (value, { req }) => {
+            if (["gtbank_agency"].includes(req.body.provider)) {
+                if (value == undefined || value == null || value == "") {
+                    throw new Error('Gender is required');
+                }
+                if (!["male", "female"].includes(value)) {
+                    throw new Error('Invalid gender');
+                }
+            }
+        }),
 ];
 
 
@@ -98,6 +176,7 @@ exports.addVAManualRequest = [
         .optional()
         .isLength({ min: 11, max: 11 })
         .withMessage('Valid Phone number is required'),
+
 ];
 
 exports.registerVARequest = [

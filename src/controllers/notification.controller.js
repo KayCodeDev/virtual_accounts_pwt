@@ -7,12 +7,14 @@ const { getTime } = require('date-fns');
 const TransactionNotification = require('../models/transactionNotification.model');
 const notificationService = require('../services/notification.service');
 const ProviderNotification = require('../models/providerNotifications.model');
+const logger = require('../utils/logger.utils');
 
 
 class NotificationController {
     fromSquadco = async (req, res, next) => {
         checkValidation(req);
-        console.log("Callback from Squad", req.body);
+        logger.info("Callback from Squad");
+        logger.info(req.body)
         const { transaction_reference: reference, virtual_account_number: account, principal_amount: amount, transaction_date: date, sender_name: originator, remarks: description } = req.body;
 
         let providerNotification = await ProviderNotification.create({
@@ -43,8 +45,8 @@ class NotificationController {
             const hash = toSha512(JSON.stringify(req.body), provider.credentials.secretKey);
 
             if (hash != req.headers['x-squad-signature']) {
-                console.log("Invalid signature")
-                console.log(hash + " : " + req.headers['x-squad-signature'])
+                logger.info("Invalid signature")
+                logger.info(hash + " : " + req.headers['x-squad-signature'])
                 providerNotification.update({ appstatus: "failed" })
                 res.status(400).send({ error: "Invalid signature" });
             } else {
@@ -55,7 +57,8 @@ class NotificationController {
 
     fromGlobus = async (req, res, next) => {
         checkValidation(req);
-        console.log("Callback from Globus", req.body);
+        logger.info("Callback from Globus");
+        logger.info(req.body)
         const provider = await Provider.findOne({ where: { code: "globus" } });
 
         let providerNotification = await ProviderNotification.create({
@@ -76,6 +79,16 @@ class NotificationController {
             res.status(400).send({ error: "Invalid Cliend ID" });
             providerNotification.update({ appstatus: "failed" })
         }
+    }
+
+    fromAgency = async (req, res, next) => {
+        checkValidation(req);
+        logger.info("Notification from Airvend Agency PWT");
+        logger.info(req.body)
+
+        const response = await notificationService.sendAgencySocket(req.body.walletID, req.body);
+
+        res.status(200).send({ message: response });
     }
 
     __handleNotification = async (res, provider, reference, acct, amount, date, originator, description, response, providerNotification) => {
@@ -149,7 +162,7 @@ class NotificationController {
                 }
             }
         } catch (e) {
-            console.log(e.message)
+            logger.info(e.message)
             res.status(400).send({ error: "Duplicate transaction notification" });
         }
     }

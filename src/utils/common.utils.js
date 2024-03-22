@@ -2,32 +2,33 @@ const axios = require('axios');
 const { validationResult } = require('express-validator');
 const crypto = require('crypto');
 const { parseISO, parse, format } = require('date-fns')
-
+const moment = require('moment');
 const HttpException = require('./HttpException.utils');
 const squadcoService = require('../services/squadco.service');
 const globusService = require('../services/globus.service');
+const logger = require('./logger.utils');
 
 exports.sendPost = async (url, data, options) => {
     return axios.post(url, data, options)
         .then((response) => {
-            console.log(response.data);
-            return response;
+            logger.info({ response: response.data });
+            return response.data;
         })
         .catch((error) => {
-            console.error(error.response.data);
-            return error.response;
+            logger.info(error.response.data);
+            return error.response.data;
         });
 }
 
 exports.sendGet = async (url, options) => {
     return axios.get(url, options)
         .then((response) => {
-            console.log(response.data);
+            logger.info({ response: response.data });
             return response.data;
         })
         .catch((error) => {
-            console.error(error.data);
-            return error;
+            logger.info(error.response.data);
+            return error.response.data;
         });
 }
 
@@ -85,20 +86,28 @@ exports.formatDate = (value) => {
     return format(parsedDate, 'yyyy-MM-dd HH:mm:ss');
 }
 
-exports
-
 exports.nowDate = (formatVal = "yyyy-MM-dd") => {
     const currentDate = new Date();
     return format(currentDate, formatVal);
 }
 
-exports.switchProviderCall = async (provider, channel, identifier, accountName, bvn, phoneNumber, settlementAccount) => {
+exports.switchProviderCall = async (provider, channel, identifier, accountName, bvn, phoneNumber, settlementAccount, req) => {
     switch (provider.code) {
         case "gtbank":
         case "gtbank_agency":
-            return await squadcoService.createVirtualAccount(provider, identifier, accountName, phoneNumber, bvn, settlementAccount);
+            return await squadcoService.createVirtualAccount(provider, identifier, accountName, phoneNumber, bvn, settlementAccount, req);
         case "globus":
             identifier = channel.prefix;
             return await globusService.createVirtualAccount(provider, identifier, accountName, phoneNumber, bvn, settlementAccount);
     }
+}
+
+exports.isValidEmail = async (email) => {
+    // Basic regex pattern for email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
+exports.isValidDate = async (dateString, format = 'YYYY-MM-DD') => {
+    return moment(dateString, format, true).isValid();
 }

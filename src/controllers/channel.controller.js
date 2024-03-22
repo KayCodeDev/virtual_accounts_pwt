@@ -6,6 +6,8 @@ const { Op } = require("sequelize");
 const dotenv = require('dotenv');
 const { respondSuccess, respondError, randGen, checkValidation } = require('../utils/common.utils');
 const Provider = require('../models/provider.model');
+const logger = require('../utils/logger.utils');
+
 dotenv.config();
 
 
@@ -83,7 +85,7 @@ class ChannelController {
             return respondSuccess(res, "channel created successfully", { uuid: channel.uuid, apiKey: token, channelName: channel.name, prefix: channel.prefix });
 
         } catch (e) {
-            console.log(e)
+            logger.info(e)
             return respondError(res, e.message);
         }
     };
@@ -142,7 +144,7 @@ class ChannelController {
 
             return respondSuccess(res, msg);
         } catch (e) {
-            console.log(e);
+            logger.info(e);
             return respondError(res, "Unable to add settlement account, try again")
         }
     }

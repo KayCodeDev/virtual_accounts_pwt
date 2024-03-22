@@ -1,11 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require("./sequelize.config");
+const { commonAttributes } = require('./attributes');
 
 const SettlementAccount = sequelize.define('SettlementAccount', {
-    uuid: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4
-    },
+    ...commonAttributes,
     accountNumber: {
         type: DataTypes.STRING,
         allowNull: false,

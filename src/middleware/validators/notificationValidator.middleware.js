@@ -77,3 +77,33 @@ exports.globusNotificationRequest = [
         .withMessage('Virtual account is required')
 ];
 
+
+exports.agencyNotificationRequest = [
+    body('walletID')
+        .exists()
+        .withMessage('Wallet ID is required'),
+    body('amount')
+        .exists()
+        .withMessage('Amount is required'),
+    body('accountNumber')
+        .exists()
+        .withMessage('Account number is required'),
+    body('transactionID')
+        .exists()
+        .withMessage('Transaction id is required'),
+    body('senderAccountNumber')
+        .exists()
+        .withMessage('Sender account number is required'),
+    body('senderAccountName')
+        .exists()
+        .withMessage('Sender account name is required'),
+    body('senderBank')
+        .exists()
+        .withMessage('Sender bank is required'),
+    body('narration')
+        .optional(),
+    body('transactionDate')
+        .exists()
+        .isDate()
+        .withMessage('Transaction date is required'),
+];

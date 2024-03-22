@@ -7,6 +7,7 @@ const apiRouter = require('./routes/api.route');
 const adminRoute = require('./routes/admin.route');
 const sequelize = require("./models/sequelize.config");
 const socketServer = require("./socket.server");
+const logger = require("./utils/logger.utils");
 
 // Init express
 const app = express();
@@ -32,14 +33,14 @@ app.use(errorMiddleware);
 //Init Serialize ORM and start server
 sequelize.sync({ force: process.env.FORCE_DB == "true", alter: process.env.ALTER_DB == "true" })
     .then(() => {
-        console.log("Synced db.");
+        logger.info("Synced db.");
         app.listen(port, () => {
-            console.log(`🚀 API Server running on port ${port}`);
+            logger.info(`🚀 API Server running on port ${port}`);
             socketServer.startServer();
         });
     })
     .catch((err) => {
-        console.log("Failed to sync db: " + err.message);
+        logger.info("Failed to sync db: " + err.message);
     });
 
 module.exports = app;

@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const Channel = require('../models/channel.model');
 const SettlementAccount = require('../models/settlementAccount.model');
+const logger = require('../utils/logger.utils');
+
 dotenv.config();
 
 const auth = (role) => {
@@ -25,6 +27,12 @@ const auth = (role) => {
                 }
             } else if (role == "POS") {
                 if (token !== process.env.POS_TOKEN) {
+                    throw new HttpException(401, 'Authentication failed!');
+                } else {
+                    next();
+                }
+            } else if (role == "AGENCY") {
+                if (token !== process.env.AGENCY_TOKEN) {
                     throw new HttpException(401, 'Authentication failed!');
                 } else {
                     next();
@@ -54,7 +62,7 @@ const auth = (role) => {
             }
 
         } catch (e) {
-            console.log(e)
+            logger.info(e)
             e.status = 401;
             e.message = "Authentication failed. " + e.message;
             next(e);

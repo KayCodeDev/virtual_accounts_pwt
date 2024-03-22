@@ -1,13 +1,10 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require("./sequelize.config");
 const TransactionNotification = require('./transactionNotification.model');
+const { commonAttributes } = require('./attributes');
 
 const VirtualAccount = sequelize.define('VirtualAccount', {
-
-    uuid: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4
-    },
+    ...commonAttributes,
     accountNumber: {
         type: DataTypes.STRING,
         allowNull: false,

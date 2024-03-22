@@ -4,7 +4,7 @@ const auth = require('../middleware/auth.middleware');
 const awaitHandlerFactory = require('../middleware/awaitHandlerFactory.middleware');
 const virtualAccountController = require('../controllers/virtualAccount.controller');
 const { addVARequest, registerVARequest } = require('../middleware/validators/virtualAccountValidator.middleware');
-const { squadcoNotificationRequest, globusNotificationRequest } = require('../middleware/validators/notificationValidator.middleware');
+const { squadcoNotificationRequest, globusNotificationRequest, agencyNotificationRequest } = require('../middleware/validators/notificationValidator.middleware');
 const notificationController = require('../controllers/notification.controller');
 
 
@@ -18,6 +18,7 @@ router.post('/account/add', auth(), addVARequest, awaitHandlerFactory(virtualAcc
 
 router.post('/notifcation/gtbank', squadcoNotificationRequest, awaitHandlerFactory(notificationController.fromSquadco));
 router.post('/notifcation/globus', globusNotificationRequest, awaitHandlerFactory(notificationController.fromGlobus));
+router.post('/notifcation/agency', auth('AGENCY'), agencyNotificationRequest, awaitHandlerFactory(notificationController.fromAgency));
 
 router.post('/account/register/:provider', auth(), registerVARequest, awaitHandlerFactory(virtualAccountController.registerVirtualAccount));
 

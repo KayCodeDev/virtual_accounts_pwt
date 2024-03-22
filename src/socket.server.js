@@ -1,6 +1,7 @@
 const net = require("net");
 const dotenv = require('dotenv');
 const socketManager = require("./utils/socket.manager");
+const logger = require("./utils/logger.utils");
 
 dotenv.config();
 
@@ -8,10 +9,10 @@ class SocketServer {
 
     startServer = () => {
         const socketServer = net.createServer((socket) => {
-            console.log('TCP client connected:', socket.remoteAddress, socket.remotePort);
+            logger.info('TCP client connected:', socket.remoteAddress, socket.remotePort);
             socket.on("data", async (data) => {
                 const message = data.toString();
-                console.log('Received TCP data:', message);
+                logger.info('Received TCP data:', message);
 
                 try {
                     const jsonData = JSON.parse(message);
@@ -30,31 +31,31 @@ class SocketServer {
                         }
                     }
                 } catch (e) {
-                    console.error('Error parsing JSON data:', e.message);
+                    logger.info('Error parsing JSON data:', e.message);
                     socket.end();
                 }
             });
 
             socket.on("end", () => {
-                console.log('TCP client disconnected:', socket.remoteAddress, socket.remotePort);
+                logger.info('TCP client disconnected:', socket.remoteAddress, socket.remotePort);
                 const key = `${socket.remoteAddress}:${socket.remotePort}`;
                 socketManager.removeSocket(key);
             });
 
             socket.on("close", () => {
-                console.log('TCP client closed:', socket.remoteAddress, socket.remotePort);
+                logger.info('TCP client closed:', socket.remoteAddress, socket.remotePort);
                 const key = `${socket.remoteAddress}:${socket.remotePort}`;
                 socketManager.removeSocket(key);
             });
 
             socket.on("timeout", () => {
-                console.log('TCP client timeout:', socket.remoteAddress, socket.remotePort);
+                logger.info('TCP client timeout:', socket.remoteAddress, socket.remotePort);
                 const key = `${socket.remoteAddress}:${socket.remotePort}`;
                 socketManager.removeSocket(key);
             });
 
             socket.on("error", (err) => {
-                console.log('TCP client Error:', socket.remoteAddress, socket.remotePort, err);
+                logger.info('TCP client Error:', socket.remoteAddress, socket.remotePort, err);
                 const key = `${socket.remoteAddress}:${socket.remotePort}`;
                 socketManager.removeSocket(key);
             });
@@ -63,7 +64,7 @@ class SocketServer {
         const port = Number(process.env.SOCKET_PORT || 3301);
 
         socketServer.listen(port, () => {
-            console.log(`🔌 Socket Server running on ${port}`);
+            logger.info(`🔌 Socket Server running on ${port}`);
         });
     }
 

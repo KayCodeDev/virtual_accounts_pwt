@@ -3,12 +3,10 @@ const sequelize = require("./sequelize.config");
 const VirtualAccount = require('./virtualAccount.model');
 const SettlementAccount = require('./settlementAccount.model');
 const ProviderNotification = require('./providerNotifications.model')
+const { commonAttributes } = require('./attributes');
 
 const Provider = sequelize.define('Provider', {
-    uuid: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4
-    },
+    ...commonAttributes,
     name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -28,7 +26,15 @@ const Provider = sequelize.define('Provider', {
     },
     credentials: {
         type: DataTypes.JSON,
-
+        get() {
+            const credentialsString = this.getDataValue('credentials');
+            try {
+                return credentialsString ? JSON.parse(credentialsString) : null;
+            } catch (error) {
+                logger.info('Error parsing credentials JSON:', error);
+                return null;
+            }
+        },
     },
     status: {
         type: DataTypes.ENUM('active', 'inactive'),

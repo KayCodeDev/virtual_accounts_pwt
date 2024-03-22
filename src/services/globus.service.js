@@ -1,5 +1,7 @@
 const common = require("../utils/common.utils");
 const qs = require('querystring');
+const FormData = require('form-data');
+const logger = require("../utils/logger.utils");
 
 class GlobusService {
 
@@ -8,7 +10,7 @@ class GlobusService {
 
         const data = {
             AccountName: accountName,
-            LinkedPartnerAccountNumber: settlementAccount,
+            LinkedPartnerAccountNumber: provider.credentials.linkedPartnerAccountNumber,
             VirtualAccountNumber: account,
             CanExpire: false,
             ExpiredTime: 0,
@@ -31,15 +33,15 @@ class GlobusService {
 
         const url = provider.credentials.baseUrl + "api/Account/generateVirtualAccountLite";
 
-        console.log("sending request to Globus for virtual account", data)
+        logger.info("sending request to Globus for virtual account")
+        logger.info(headers);
+        logger.info(data)
+        logger.info(url)
 
-        const result = await common.sendPost(url, data, { headers });
+        const response = await common.sendPost(url, data, { headers });
 
-        const response = result.data;
-
-        console.log("Response from Globus for virtual account", response)
-
-        console.log(response);
+        logger.info("Response from Globus for virtual account:" + accountName)
+        logger.info({ response: response });
 
         if (response?.hasOwnProperty('responseCode') && response.responseCode == "00") {
             return { error: false, account: response.result.virtualAccount ?? account };
@@ -54,27 +56,26 @@ class GlobusService {
         const password = common.toSha256(provider.credentials.password);
         const username = common.toSha256(common.nowDate('yyyyMMdd') + provider.credentials.cliendID);
 
-        const data = {
-            grant_type: "password",
-            username,
-            password,
-            client_id: provider.credentials.cliendID ?? "",
-            client_secret: provider.credentials.cliendSecret ?? "",
-            scope: provider.credentials.scope ?? ""
-        }
+        let formData = new FormData();
+        formData.append('grant_type', 'password');
+        formData.append('username', username);
+        formData.append('password', password);
+        formData.append('client_id', provider.credentials.cliendID ?? "");
+        formData.append('client_secret', provider.credentials.cliendSecret ?? "");
+        formData.append('scope', provider.credentials.scope ?? "");
+
         const url = provider.credentials.tokenUrl;
 
         const headers = {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            ...formData.getHeaders()
         }
 
-        const formData = qs.stringify(data);
-
-        console.log("sending request to Globus for Generate token", formData);
-
-        const response = await common.sendPost(url, formData, { headers });
-
-        console.log("response from Globus for Generate token", response);
+        logger.info("sending request to Globus for Generate token");
+        logger.info(url)
+        const result = await common.sendPost(url, formData, { headers });
+        const response = result.data;
+        logger.info("response from Globus for Generate token");
+        logger.info({ response: response });
 
         if (response != undefined && response.hasOwnProperty('access_token')) {
             return response.access_token;

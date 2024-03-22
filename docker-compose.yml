@@ -9,6 +9,8 @@ services:
     restart: unless-stopped
     stdin_open: true
     tty: true
+    volumes:
+      - ./logs:/app/logs
     ports:
       - "3300:3300"
       - "3301:3301" # Socket Port

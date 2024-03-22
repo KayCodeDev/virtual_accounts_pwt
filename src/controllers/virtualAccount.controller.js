@@ -8,6 +8,8 @@ const Channel = require('../models/channel.model');
 const SettlementAccount = require('../models/settlementAccount.model');
 const TransactionNotification = require('../models/transactionNotification.model');
 const ProviderNotification = require('../models/providerNotifications.model');
+const logger = require('../utils/logger.utils');
+
 dotenv.config();
 
 
@@ -20,7 +22,6 @@ class VirtualAccountController {
 
         const offset = (page - 1) * limit;
 
-        console.log(offset);
         let accounts = await VirtualAccount.findAll({
             offset,
             limit,
@@ -284,7 +285,7 @@ class VirtualAccountController {
                 }
             }
 
-            const response = await switchProviderCall(provider, channel, tid, accountName, bvn, phoneNumber, settlementAccount);
+            const response = await switchProviderCall(provider, channel, tid, accountName, bvn, phoneNumber, settlementAccount, req);
 
             if (response.error) {
                 return respondError(res, response.message);
@@ -308,7 +309,7 @@ class VirtualAccountController {
             return respondSuccess(res, "Virtual account created successfully", { accountNumber: account.accountNumber, accountName: account.accountName, bvn: account.bvn, phoneNumber: account.phoneNumber, tid: account.tid, Provider: { name: provider.name } });
 
         } catch (e) {
-            console.log(e)
+            logger.info(e)
             return respondError(res, e.message);
         }
     }
@@ -353,7 +354,6 @@ class VirtualAccountController {
 
             let bvnAlt = bvn ?? randGen(11)
             let phoneNumberAlt = phoneNumber ?? randGen(11)
-            console.log(`Data used ${bvnAlt} ${phoneNumberAlt}`)
             const settlementAccount = channels.SettlementAccounts.find((e) => e.ProviderId === provider.id);
 
 
@@ -371,7 +371,7 @@ class VirtualAccountController {
 
 
         } catch (e) {
-            console.log(e)
+            logger.info(e)
             return respondError(res, e.message);
         }
     }
@@ -409,7 +409,7 @@ class VirtualAccountController {
                 return respondError(res, "No settlement account profile for your channel yet with provider");
             }
 
-            const response = await switchProviderCall(provider, channel, phoneNumber, accountName, bvn, phoneNumber, settlementAccount.accountNumber);
+            const response = await switchProviderCall(provider, channel, phoneNumber, accountName, bvn, phoneNumber, settlementAccount.accountNumber, req);
 
             if (response.error) {
                 return respondError(res, response.message);
@@ -431,7 +431,7 @@ class VirtualAccountController {
             return respondSuccess(res, "Virtual account created successfully", { accountNumber: account.accountNumber, accountName: account.accountName, bvn: account.bvn, phoneNumber: account.phoneNumber, Provider: { name: provider.name.replace(" Agency", "") } });
 
         } catch (e) {
-            console.log(e)
+            logger.info(e)
             return respondError(res, e.message);
         }
     }
@@ -479,7 +479,7 @@ class VirtualAccountController {
             return respondSuccess(res, "Virtual account registered successfully");
 
         } catch (e) {
-            console.log(e)
+            logger.info(e)
             return respondError(res, e.message);
         }
     }

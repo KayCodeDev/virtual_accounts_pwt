@@ -1,0 +1,1327 @@
+2024-03-22T09:30:45.612Z info: "Synced db."
+2024-03-22T09:30:45.618Z info: "🚀 API Server running on port 3300"
+2024-03-22T09:30:45.619Z info: "🔌 Socket Server running on 3301"
+2024-03-22T09:31:42.425Z info: Synced db.
+2024-03-22T09:31:42.431Z info: 🚀 API Server running on port 3300
+2024-03-22T09:31:42.432Z info: 🔌 Socket Server running on 3301
+2024-03-22T09:31:53.369Z info: {
+  "credentials": {
+    "scope": "CALLPHONE",
+    "baseUrl": "https://tpp.globusbank.com/",
+    "cliendID": "CALLPHONE LTD130423",
+    "password": "CALLPHONE LTD130423",
+    "tokenUrl": "https://auth.globusbank.com/accessclient/connect/token",
+    "cliendSecret": "CALLPHONE LTD130423App",
+    "linkedPartnerAccountNumber": "1000120923"
+  },
+  "id": 1,
+  "uuid": "2488669c-5261-41de-9197-99d16e57cc53",
+  "name": "Globus Bank",
+  "code": "globus",
+  "received": 0,
+  "prefix": null,
+  "status": "active",
+  "createdAt": "2024-03-21T12:55:59.000Z",
+  "updatedAt": "2024-03-22T08:25:18.000Z",
+  "deletedAt": null
+}
+2024-03-22T09:31:53.374Z info: sending request to Globus for Generate token
+2024-03-22T09:31:53.375Z info: {
+  "Content-Type": "application/x-www-form-urlencoded"
+}
+2024-03-22T09:31:53.375Z info: {
+  "grant_type": "password",
+  "username": "203240d8ada07b3a393703316eadf1a2220b9870f2ae5e1ff07e042f7073de8a",
+  "password": "5210a645fc73bd058ec3229317a568803d8064be971eb973f6aa150582b6b195",
+  "client_id": "CALLPHONE LTD130423",
+  "client_secret": "CALLPHONE LTD130423App",
+  "scope": "CALLPHONE"
+}
+2024-03-22T09:31:53.375Z info: https://auth.globusbank.com/accessclient/connect/token
+2024-03-22T09:31:53.375Z info: grant_type=password&username=203240d8ada07b3a393703316eadf1a2220b9870f2ae5e1ff07e042f7073de8a&password=5210a645fc73bd058ec3229317a568803d8064be971eb973f6aa150582b6b195&client_id=CALLPHONE%20LTD130423&client_secret=CALLPHONE%20LTD130423App&scope=CALLPHONE
+2024-03-22T09:31:54.654Z info: undefined
+2024-03-22T09:31:54.655Z info: Cannot read property 'data' of undefined
+2024-03-22T09:46:56.901Z info: Synced db.
+2024-03-22T09:46:56.910Z info: 🚀 API Server running on port 3300
+2024-03-22T09:46:56.911Z info: 🔌 Socket Server running on 3301
+2024-03-22T09:47:10.927Z info: {
+  "credentials": {
+    "scope": "CALLPHONE",
+    "baseUrl": "https://tpp.globusbank.com/",
+    "cliendID": "CALLPHONE LTD130423",
+    "password": "CALLPHONE LTD130423",
+    "tokenUrl": "https://auth.globusbank.com/accessclient/connect/token",
+    "cliendSecret": "CALLPHONE LTD130423App",
+    "linkedPartnerAccountNumber": "1000120923"
+  },
+  "id": 1,
+  "uuid": "2488669c-5261-41de-9197-99d16e57cc53",
+  "name": "Globus Bank",
+  "code": "globus",
+  "received": 0,
+  "prefix": null,
+  "status": "active",
+  "createdAt": "2024-03-21T12:55:59.000Z",
+  "updatedAt": "2024-03-22T08:25:18.000Z",
+  "deletedAt": null
+}
+2024-03-22T09:47:10.931Z info: sending request to Globus for Generate token
+2024-03-22T09:47:10.931Z info: {
+  "Content-Type": "application/x-www-form-urlencoded"
+}
+2024-03-22T09:47:10.931Z info: {
+  "grant_type": "password",
+  "username": "203240d8ada07b3a393703316eadf1a2220b9870f2ae5e1ff07e042f7073de8a",
+  "password": "5210a645fc73bd058ec3229317a568803d8064be971eb973f6aa150582b6b195",
+  "client_id": "CALLPHONE LTD130423",
+  "client_secret": "CALLPHONE LTD130423App",
+  "scope": "CALLPHONE"
+}
+2024-03-22T09:47:10.931Z info: https://auth.globusbank.com/accessclient/connect/token
+2024-03-22T09:47:10.932Z info: grant_type=password&username=203240d8ada07b3a393703316eadf1a2220b9870f2ae5e1ff07e042f7073de8a&password=5210a645fc73bd058ec3229317a568803d8064be971eb973f6aa150582b6b195&client_id=CALLPHONE%20LTD130423&client_secret=CALLPHONE%20LTD130423App&scope=CALLPHONE
+2024-03-22T09:47:13.142Z info: undefined
+2024-03-22T09:47:13.143Z info: Cannot read property 'includes' of undefined
+2024-03-22T09:56:39.062Z info: Synced db.
+2024-03-22T09:56:39.069Z info: 🚀 API Server running on port 3300
+2024-03-22T09:56:39.069Z info: 🔌 Socket Server running on 3301
+2024-03-22T09:57:43.130Z info: {
+  "credentials": {
+    "scope": "CALLPHONE",
+    "baseUrl": "https://tpp.globusbank.com/",
+    "cliendID": "CALLPHONE LTD130423",
+    "password": "CALLPHONE LTD130423",
+    "tokenUrl": "https://auth.globusbank.com/accessclient/connect/token",
+    "cliendSecret": "CALLPHONE LTD130423App",
+    "linkedPartnerAccountNumber": "1000120923"
+  },
+  "id": 1,
+  "uuid": "2488669c-5261-41de-9197-99d16e57cc53",
+  "name": "Globus Bank",
+  "code": "globus",
+  "received": 0,
+  "prefix": null,
+  "status": "active",
+  "createdAt": "2024-03-21T12:55:59.000Z",
+  "updatedAt": "2024-03-22T08:25:18.000Z",
+  "deletedAt": null
+}
+2024-03-22T09:57:43.134Z info: sending request to Globus for Generate token
+2024-03-22T09:57:46.485Z info: undefined
+2024-03-22T09:57:46.485Z info: response from Globus for Generate token
+2024-03-22T09:57:46.485Z info: undefined
+2024-03-22T10:02:43.986Z info: Synced db.
+2024-03-22T10:02:43.993Z info: 🚀 API Server running on port 3300
+2024-03-22T10:02:43.994Z info: 🔌 Socket Server running on 3301
+2024-03-22T10:03:49.813Z info: sending request to Globus for Generate token
+2024-03-22T10:03:49.813Z info: https://auth.globusbank.com/accessclient/connect/token
+2024-03-22T10:03:49.813Z info: {
+  "content-type": "multipart/form-data; boundary=--------------------------271505135895269882346216"
+}
+2024-03-22T10:03:53.138Z info: {
+  "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU3OWUyNjNmMDk1MjFmOGMzNzJhYWM1ZTcxZDU1ZWFiIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MTExMDE4MzgsImV4cCI6MTcxMTEzNzgzOCwiaXNzIjoiaHR0cHM6Ly9hdXRoLmdsb2J1c2JhbmsuY29tL2FjY2Vzc2NsaWVudCIsImF1ZCI6ImF1dGhBY2Nlc3MiLCJjbGllbnRfaWQiOiJDQUxMUEhPTkUgTFREMTMwNDIzIiwic3ViIjoiQ0FMTFBIT05FIExURDEzMDQyMyIsImF1dGhfdGltZSI6MTcxMTEwMTgzOCwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJDQUxMUEhPTkUiXSwiYW1yIjpbInBhc3N3b3JkIl19.yOXWc3XW7EE9tSvpLKdEHvnPP0CFBN_U3wccQTBnv6utlUHgnZ03UZsmg9ifz-8xrQN4aoOAo944w5daHpen0FitVYvoL9QoXyvtG7Pe8b3GMqUXFTjezbYYNZKXMnjm4BffTTDRe6juvAUFw-bK9r2cg-Mhv85-m6BtmqKqZZxQN-phBsKeZNpf54uFy3UqEBVIcbTO1GJquuL-Ek764WFQ_k_bXfUONwPeOt_UasFqJKPfEMokdCwYHUJkKAZVq1XrAjK0qmEzeuLhYbD5QlyfLADlo977nXgPL2WrFiZ_KbLI8bkz16C39VHFMwbULT8wewJ5e_RgRrCBLfGFDg",
+  "expires_in": 36000,
+  "token_type": "Bearer",
+  "scope": "CALLPHONE"
+}
+2024-03-22T10:03:53.138Z info: response from Globus for Generate token
+2024-03-22T10:03:53.138Z info: {
+  "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU3OWUyNjNmMDk1MjFmOGMzNzJhYWM1ZTcxZDU1ZWFiIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MTExMDE4MzgsImV4cCI6MTcxMTEzNzgzOCwiaXNzIjoiaHR0cHM6Ly9hdXRoLmdsb2J1c2JhbmsuY29tL2FjY2Vzc2NsaWVudCIsImF1ZCI6ImF1dGhBY2Nlc3MiLCJjbGllbnRfaWQiOiJDQUxMUEhPTkUgTFREMTMwNDIzIiwic3ViIjoiQ0FMTFBIT05FIExURDEzMDQyMyIsImF1dGhfdGltZSI6MTcxMTEwMTgzOCwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJDQUxMUEhPTkUiXSwiYW1yIjpbInBhc3N3b3JkIl19.yOXWc3XW7EE9tSvpLKdEHvnPP0CFBN_U3wccQTBnv6utlUHgnZ03UZsmg9ifz-8xrQN4aoOAo944w5daHpen0FitVYvoL9QoXyvtG7Pe8b3GMqUXFTjezbYYNZKXMnjm4BffTTDRe6juvAUFw-bK9r2cg-Mhv85-m6BtmqKqZZxQN-phBsKeZNpf54uFy3UqEBVIcbTO1GJquuL-Ek764WFQ_k_bXfUONwPeOt_UasFqJKPfEMokdCwYHUJkKAZVq1XrAjK0qmEzeuLhYbD5QlyfLADlo977nXgPL2WrFiZ_KbLI8bkz16C39VHFMwbULT8wewJ5e_RgRrCBLfGFDg",
+  "expires_in": 36000,
+  "token_type": "Bearer",
+  "scope": "CALLPHONE"
+}
+2024-03-22T10:03:53.139Z info: sending request to Globus for virtual account
+2024-03-22T10:03:53.139Z info: {
+  "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjU3OWUyNjNmMDk1MjFmOGMzNzJhYWM1ZTcxZDU1ZWFiIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MTExMDE4MzgsImV4cCI6MTcxMTEzNzgzOCwiaXNzIjoiaHR0cHM6Ly9hdXRoLmdsb2J1c2JhbmsuY29tL2FjY2Vzc2NsaWVudCIsImF1ZCI6ImF1dGhBY2Nlc3MiLCJjbGllbnRfaWQiOiJDQUxMUEhPTkUgTFREMTMwNDIzIiwic3ViIjoiQ0FMTFBIT05FIExURDEzMDQyMyIsImF1dGhfdGltZSI6MTcxMTEwMTgzOCwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJDQUxMUEhPTkUiXSwiYW1yIjpbInBhc3N3b3JkIl19.yOXWc3XW7EE9tSvpLKdEHvnPP0CFBN_U3wccQTBnv6utlUHgnZ03UZsmg9ifz-8xrQN4aoOAo944w5daHpen0FitVYvoL9QoXyvtG7Pe8b3GMqUXFTjezbYYNZKXMnjm4BffTTDRe6juvAUFw-bK9r2cg-Mhv85-m6BtmqKqZZxQN-phBsKeZNpf54uFy3UqEBVIcbTO1GJquuL-Ek764WFQ_k_bXfUONwPeOt_UasFqJKPfEMokdCwYHUJkKAZVq1XrAjK0qmEzeuLhYbD5QlyfLADlo977nXgPL2WrFiZ_KbLI8bkz16C39VHFMwbULT8wewJ5e_RgRrCBLfGFDg",
+  "ClientID": "CALLPHONE LTD130423",
+  "Content-Type": "application/json"
+}
+2024-03-22T10:03:53.139Z info: {
+  "AccountName": "Kenneth Osekhuemen",
+  "LinkedPartnerAccountNumber": "1000120923",
+  "VirtualAccountNumber": "0064899169",
+  "CanExpire": false,
+  "ExpiredTime": 0,
+  "hasTransactionAmount": false,
+  "TransactionAmount": 0
+}
+2024-03-22T10:03:53.140Z info: https://tpp.globusbank.com/api/Account/generateVirtualAccountLite
+2024-03-22T10:03:56.245Z info: <html style="height:100%"><head><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"><meta name="format-detection" content="telephone=no"><meta name="viewport" content="initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3"></script></head><body style="margin:0px;height:100%"><iframe id="main-iframe" src="/_Incapsula_Resource?CWUDNSAI=23&xinfo=19-11025533-0%200NNN%20RT%281711101836330%20192%29%20q%280%20-1%20-1%201%29%20r%280%20-1%29%20B15%2811%2c2674738%2c0%29%20U6&incident_id=267000420522296750-52587205927570067&edet=15&cinfo=0b000000&rpinfo=0&mth=POST" frameborder=0 width="100%" height="100%" marginheight="0px" marginwidth="0px">Request unsuccessful. Incapsula incident ID: 267000420522296750-52587205927570067</iframe></body></html>
+2024-03-22T10:03:56.245Z info: Response from Globus for virtual account:Kenneth Osekhuemen
+2024-03-22T10:03:56.245Z info: undefined
+2024-03-22T10:07:00.857Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T10:07:00.857Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T10:07:00.858Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "gender": "2"
+}
+2024-03-22T10:07:00.858Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T10:07:02.193Z info: "dob" is required
+2024-03-22T10:07:02.193Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T10:07:02.193Z info: {}
+2024-03-22T10:09:21.452Z info: Synced db.
+2024-03-22T10:09:21.459Z info: 🚀 API Server running on port 3300
+2024-03-22T10:09:21.460Z info: 🔌 Socket Server running on 3301
+2024-03-22T10:09:24.933Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T10:09:24.933Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T10:09:24.933Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "gender": "2"
+}
+2024-03-22T10:09:24.933Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T10:09:25.916Z info: "dob" is required
+2024-03-22T10:09:25.916Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T10:09:25.916Z info: {}
+2024-03-22T10:10:49.912Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:11:02.785Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:11:14.954Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:11:27.465Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:11:39.844Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:11:52.316Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:12:04.702Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:12:17.138Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:12:29.728Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:13:15.171Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:13:27.795Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:13:40.127Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:13:52.614Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:14:05.252Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:14:17.704Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:14:30.091Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:14:42.506Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:14:54.928Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:15:07.359Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:15:19.884Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:15:32.424Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:15:45.103Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:15:57.554Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:16:09.901Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:16:22.540Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:16:34.989Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:16:47.448Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:16:59.936Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:17:12.375Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:17:24.824Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:17:37.227Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:17:50.022Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:18:02.439Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:18:14.833Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:18:27.250Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:18:39.671Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:18:52.142Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:19:04.773Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:19:17.436Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:19:29.864Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:19:48.635Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:20:01.066Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:20:13.478Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:20:25.902Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:20:38.290Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:20:50.707Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:21:03.176Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:21:15.757Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:21:28.190Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:21:40.736Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:21:53.229Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:22:05.956Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:22:18.581Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:22:30.992Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:22:43.471Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:22:55.862Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:23:08.385Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:23:20.832Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:23:33.242Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:23:45.755Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:23:58.230Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:24:10.687Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:24:23.390Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:24:35.891Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:24:48.458Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:25:01.246Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:25:13.836Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:25:26.687Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:25:39.503Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:25:52.043Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:26:30.638Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:26:43.154Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:26:55.756Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:27:08.360Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:27:25.184Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:27:37.636Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:27:49.984Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:28:02.527Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:28:15.101Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:28:27.721Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:28:40.168Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:28:52.565Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:29:04.973Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:29:17.375Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:29:29.835Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:29:42.542Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:29:55.052Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:30:07.732Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:30:20.165Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:30:32.762Z info: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T10:30:54.233Z info: Synced db.
+2024-03-22T10:30:54.241Z info: 🚀 API Server running on port 3300
+2024-03-22T10:30:54.242Z info: 🔌 Socket Server running on 3301
+2024-03-22T10:34:56.092Z info: sending request to Globus for Generate token
+2024-03-22T10:34:56.093Z info: https://auth.globusbank.com/accessclient/connect/token
+2024-03-22T10:35:00.322Z info: {
+  "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU3OWUyNjNmMDk1MjFmOGMzNzJhYWM1ZTcxZDU1ZWFiIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MTExMDM3MDUsImV4cCI6MTcxMTEzOTcwNSwiaXNzIjoiaHR0cHM6Ly9hdXRoLmdsb2J1c2JhbmsuY29tL2FjY2Vzc2NsaWVudCIsImF1ZCI6ImF1dGhBY2Nlc3MiLCJjbGllbnRfaWQiOiJDQUxMUEhPTkUgTFREMTMwNDIzIiwic3ViIjoiQ0FMTFBIT05FIExURDEzMDQyMyIsImF1dGhfdGltZSI6MTcxMTEwMzcwNSwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJDQUxMUEhPTkUiXSwiYW1yIjpbInBhc3N3b3JkIl19.R5jBolcivUqJhzx9iSDgY6-YnQYTcRjsD-hbaRllH_LNm4ePNutAJR7ZENozU_y-GAxfMT-5Cz85AK1oC8LT-Iqyr9O4Z82C2FDckntk3_q1bklV0Rr3ZxYI-Fo4-izviqylw8V6buXnQC5nn1G5VX-T4gqqp5TM_h6klgvgLVrzy-HpCVh007ViiSFk0AY9-9pBpaon93zs83xsl0z-HP4YnUz9vSLcErALa1J3wV5iqvTH0KUHXLVM4YzgzCHH3IOIQ36H-vigsjx4SImQxWlmwgIi5TIuKcEeFVYXju5WOCLBhrk1pg6o9kaLxds4YcTCCvifebLJF6vAy0zXlw",
+  "expires_in": 36000,
+  "token_type": "Bearer",
+  "scope": "CALLPHONE"
+}
+2024-03-22T10:35:00.323Z info: response from Globus for Generate token
+2024-03-22T10:35:00.323Z info: {
+  "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU3OWUyNjNmMDk1MjFmOGMzNzJhYWM1ZTcxZDU1ZWFiIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MTExMDM3MDUsImV4cCI6MTcxMTEzOTcwNSwiaXNzIjoiaHR0cHM6Ly9hdXRoLmdsb2J1c2JhbmsuY29tL2FjY2Vzc2NsaWVudCIsImF1ZCI6ImF1dGhBY2Nlc3MiLCJjbGllbnRfaWQiOiJDQUxMUEhPTkUgTFREMTMwNDIzIiwic3ViIjoiQ0FMTFBIT05FIExURDEzMDQyMyIsImF1dGhfdGltZSI6MTcxMTEwMzcwNSwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJDQUxMUEhPTkUiXSwiYW1yIjpbInBhc3N3b3JkIl19.R5jBolcivUqJhzx9iSDgY6-YnQYTcRjsD-hbaRllH_LNm4ePNutAJR7ZENozU_y-GAxfMT-5Cz85AK1oC8LT-Iqyr9O4Z82C2FDckntk3_q1bklV0Rr3ZxYI-Fo4-izviqylw8V6buXnQC5nn1G5VX-T4gqqp5TM_h6klgvgLVrzy-HpCVh007ViiSFk0AY9-9pBpaon93zs83xsl0z-HP4YnUz9vSLcErALa1J3wV5iqvTH0KUHXLVM4YzgzCHH3IOIQ36H-vigsjx4SImQxWlmwgIi5TIuKcEeFVYXju5WOCLBhrk1pg6o9kaLxds4YcTCCvifebLJF6vAy0zXlw",
+  "expires_in": 36000,
+  "token_type": "Bearer",
+  "scope": "CALLPHONE"
+}
+2024-03-22T10:35:00.323Z info: sending request to Globus for virtual account
+2024-03-22T10:35:00.324Z info: {
+  "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjU3OWUyNjNmMDk1MjFmOGMzNzJhYWM1ZTcxZDU1ZWFiIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE3MTExMDM3MDUsImV4cCI6MTcxMTEzOTcwNSwiaXNzIjoiaHR0cHM6Ly9hdXRoLmdsb2J1c2JhbmsuY29tL2FjY2Vzc2NsaWVudCIsImF1ZCI6ImF1dGhBY2Nlc3MiLCJjbGllbnRfaWQiOiJDQUxMUEhPTkUgTFREMTMwNDIzIiwic3ViIjoiQ0FMTFBIT05FIExURDEzMDQyMyIsImF1dGhfdGltZSI6MTcxMTEwMzcwNSwiaWRwIjoibG9jYWwiLCJzY29wZSI6WyJDQUxMUEhPTkUiXSwiYW1yIjpbInBhc3N3b3JkIl19.R5jBolcivUqJhzx9iSDgY6-YnQYTcRjsD-hbaRllH_LNm4ePNutAJR7ZENozU_y-GAxfMT-5Cz85AK1oC8LT-Iqyr9O4Z82C2FDckntk3_q1bklV0Rr3ZxYI-Fo4-izviqylw8V6buXnQC5nn1G5VX-T4gqqp5TM_h6klgvgLVrzy-HpCVh007ViiSFk0AY9-9pBpaon93zs83xsl0z-HP4YnUz9vSLcErALa1J3wV5iqvTH0KUHXLVM4YzgzCHH3IOIQ36H-vigsjx4SImQxWlmwgIi5TIuKcEeFVYXju5WOCLBhrk1pg6o9kaLxds4YcTCCvifebLJF6vAy0zXlw",
+  "ClientID": "CALLPHONE LTD130423",
+  "Content-Type": "application/json"
+}
+2024-03-22T10:35:00.324Z info: {
+  "AccountName": "Kenneth Osekhuemen",
+  "LinkedPartnerAccountNumber": "1000120923",
+  "VirtualAccountNumber": "0066968914",
+  "CanExpire": false,
+  "ExpiredTime": 0,
+  "hasTransactionAmount": false,
+  "TransactionAmount": 0
+}
+2024-03-22T10:35:00.324Z info: https://tpp.globusbank.com/api/Account/generateVirtualAccountLite
+2024-03-22T10:35:01.234Z info: <html style="height:100%"><head><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"><meta name="format-detection" content="telephone=no"><meta name="viewport" content="initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3"></script></head><body style="margin:0px;height:100%"><iframe id="main-iframe" src="/_Incapsula_Resource?CWUDNSAI=23&xinfo=37-30981558-0%200NNN%20RT%281711103701267%20244%29%20q%280%20-1%20-1%201%29%20r%280%20-1%29%20B15%2811%2c2674738%2c0%29%20U6&incident_id=267000420527272479-149750670517013157&edet=15&cinfo=0b000000&rpinfo=0&mth=POST" frameborder=0 width="100%" height="100%" marginheight="0px" marginwidth="0px">Request unsuccessful. Incapsula incident ID: 267000420527272479-149750670517013157</iframe></body></html>
+2024-03-22T10:35:01.234Z info: Response from Globus for virtual account:Kenneth Osekhuemen
+2024-03-22T10:35:01.234Z info: undefined
+2024-03-22T10:35:56.140Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T10:35:56.141Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T10:35:56.141Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "business_name": "Kenneth Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434"
+}
+2024-03-22T10:35:56.141Z info: https://sandbox-api-d.squadco.com/virtual-account/business
+2024-03-22T10:36:01.479Z info: Success
+2024-03-22T10:36:01.479Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T10:36:01.479Z info: {
+  "first_name": "Kenneth",
+  "last_name": "osekhuemen",
+  "bank_code": "058",
+  "virtual_account_number": "8876495146",
+  "beneficiary_account": "0150776434",
+  "customer_identifier": "CPL-PWT-44564323",
+  "created_at": "2024-03-21T16:14:46.978Z",
+  "updated_at": "2024-03-21T16:14:46.978Z"
+}
+2024-03-22T10:39:23.619Z info: Synced db.
+2024-03-22T10:39:23.626Z info: 🚀 API Server running on port 3300
+2024-03-22T10:39:23.627Z info: 🔌 Socket Server running on 3301
+2024-03-22T10:39:27.595Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T10:39:27.595Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T10:39:27.595Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "business_name": "Kenneth Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434"
+}
+2024-03-22T10:39:27.595Z info: https://sandbox-api-d.squadco.com/virtual-account/business
+2024-03-22T10:39:28.863Z info: undefined
+2024-03-22T10:39:28.864Z info: Cannot read property 'data' of undefined
+2024-03-22T10:41:18.919Z info: Synced db.
+2024-03-22T10:41:18.926Z info: 🚀 API Server running on port 3300
+2024-03-22T10:41:18.927Z info: 🔌 Socket Server running on 3301
+2024-03-22T10:43:29.107Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T10:43:29.107Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T10:43:29.107Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "business_name": "Kenneth Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434"
+}
+2024-03-22T10:43:29.108Z info: https://sandbox-api-d.squadco.com/virtual-account/business
+2024-03-22T10:43:32.507Z info: Success
+2024-03-22T10:43:32.507Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T10:43:32.507Z info: Success
+2024-03-22T10:47:29.081Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T10:47:29.081Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T10:47:29.081Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "gender": "2"
+}
+2024-03-22T10:47:29.082Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T10:47:30.491Z info: "dob" is required
+2024-03-22T10:47:30.491Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T10:47:30.491Z info: "dob" is required
+2024-03-22T11:04:51.677Z info: Synced db.
+2024-03-22T11:04:51.688Z info: 🚀 API Server running on port 3300
+2024-03-22T11:04:51.689Z info: 🔌 Socket Server running on 3301
+2024-03-22T11:05:04.791Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T11:05:04.791Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T11:05:04.792Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "gender": "2"
+}
+2024-03-22T11:05:04.792Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T11:05:10.252Z info: "dob" is required
+2024-03-22T11:05:10.252Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T11:05:10.252Z info: "dob" is required
+2024-03-22T11:05:24.577Z info: [Error] Invalid provider
+2024-03-22T11:20:56.364Z info: Synced db.
+2024-03-22T11:20:56.370Z info: 🚀 API Server running on port 3300
+2024-03-22T11:20:56.371Z info: 🔌 Socket Server running on 3301
+2024-03-22T11:29:10.749Z info: [Error] Invalid provider
+2024-03-22T11:29:15.630Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T11:29:15.630Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T11:29:15.631Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "gender": "2"
+}
+2024-03-22T11:29:15.631Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T11:29:16.346Z info: "dob" is required
+2024-03-22T11:29:16.347Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T11:29:16.346Z info: "dob" is required
+2024-03-22T11:50:35.100Z info: Synced db.
+2024-03-22T11:50:35.106Z info: 🚀 API Server running on port 3300
+2024-03-22T11:50:35.107Z info: 🔌 Socket Server running on 3301
+2024-03-22T11:55:24.980Z info: Synced db.
+2024-03-22T11:55:24.989Z info: 🚀 API Server running on port 3300
+2024-03-22T11:55:24.990Z info: 🔌 Socket Server running on 3301
+2024-03-22T11:55:49.339Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T11:55:49.339Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T11:55:49.339Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "gender": "2"
+}
+2024-03-22T11:55:49.340Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T11:55:50.043Z info: "dob" is required
+2024-03-22T11:55:50.043Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T11:55:50.043Z info: "dob" is required
+2024-03-22T11:57:10.203Z info: Synced db.
+2024-03-22T11:57:10.211Z info: 🚀 API Server running on port 3300
+2024-03-22T11:57:10.213Z info: 🔌 Socket Server running on 3301
+2024-03-22T11:57:13.595Z info: [Error] Invalid value
+2024-03-22T11:59:40.011Z info: Synced db.
+2024-03-22T11:59:40.021Z info: 🚀 API Server running on port 3300
+2024-03-22T11:59:40.022Z info: 🔌 Socket Server running on 3301
+2024-03-22T12:00:01.592Z info: [Error] Email is required
+2024-03-22T12:13:15.501Z info: Synced db.
+2024-03-22T12:13:15.507Z info: 🚀 API Server running on port 3300
+2024-03-22T12:13:15.508Z info: 🔌 Socket Server running on 3301
+2024-03-22T12:14:07.445Z info: [Error] Email is required
+2024-03-22T12:14:09.602Z info: [Error] Email is required
+2024-03-22T12:14:48.673Z info: [Error] Date of birth is required
+2024-03-22T12:15:07.239Z info: [Error] Address is required
+2024-03-22T12:15:11.750Z info: [Error] Address is required
+2024-03-22T12:15:16.457Z info: [Error] Address is required
+2024-03-22T12:15:44.042Z info: [Error] Unexpected token } in JSON at position 239
+2024-03-22T12:15:48.523Z info: [Error] Gender is required
+2024-03-22T12:16:00.977Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T12:16:00.978Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T12:16:00.978Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "1990-03-16",
+  "address": "",
+  "gender": "1"
+}
+2024-03-22T12:16:00.978Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T12:16:02.800Z info: "address" is not allowed to be empty
+2024-03-22T12:16:02.801Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T12:16:02.800Z info: "address" is not allowed to be empty
+2024-03-22T12:42:50.658Z info: Synced db.
+2024-03-22T12:42:50.666Z info: 🚀 API Server running on port 3300
+2024-03-22T12:42:50.667Z info: 🔌 Socket Server running on 3301
+2024-03-22T14:42:36.567Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T14:42:36.567Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T14:42:36.567Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "1990-03-16",
+  "address": "Ahmed ",
+  "gender": "1"
+}
+2024-03-22T14:42:36.567Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T14:42:40.334Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:42:40.335Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T14:42:40.334Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:44:22.638Z info: Synced db.
+2024-03-22T14:44:22.647Z info: 🚀 API Server running on port 3300
+2024-03-22T14:44:22.647Z info: 🔌 Socket Server running on 3301
+2024-03-22T14:44:27.171Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T14:44:27.171Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T14:44:27.171Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "1990-03-16",
+  "address": "Ahmed ",
+  "gender": "1"
+}
+2024-03-22T14:44:27.171Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T14:44:30.001Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:44:30.001Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T14:44:30.001Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:46:10.204Z info: Synced db.
+2024-03-22T14:46:10.219Z info: 🚀 API Server running on port 3300
+2024-03-22T14:46:10.221Z info: 🔌 Socket Server running on 3301
+2024-03-22T14:46:18.102Z info: 1990-03-16
+2024-03-22T14:46:18.102Z info: MM/DD/YYYY
+2024-03-22T14:46:18.104Z info: false
+2024-03-22T14:46:18.150Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T14:46:18.150Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T14:46:18.150Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "1990-03-16",
+  "address": "Ahmed ",
+  "gender": "1"
+}
+2024-03-22T14:46:18.150Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T14:46:20.997Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:46:20.997Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T14:46:20.997Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:48:16.702Z info: Synced db.
+2024-03-22T14:48:16.709Z info: 🚀 API Server running on port 3300
+2024-03-22T14:48:16.710Z info: 🔌 Socket Server running on 3301
+2024-03-22T14:48:25.218Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T14:48:25.219Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T14:48:25.219Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "1990-03-16",
+  "address": "Ahmed ",
+  "gender": "1"
+}
+2024-03-22T14:48:25.219Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T14:48:28.754Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:48:28.754Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T14:48:28.754Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:51:30.420Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T14:51:30.420Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T14:51:30.421Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "1990-03-16",
+  "address": "Ahmed ",
+  "gender": "1"
+}
+2024-03-22T14:51:30.421Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T14:51:32.946Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:51:32.947Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T14:51:32.946Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:52:17.922Z info: Synced db.
+2024-03-22T14:52:17.929Z info: 🚀 API Server running on port 3300
+2024-03-22T14:52:17.930Z info: 🔌 Socket Server running on 3301
+2024-03-22T14:53:21.728Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T14:53:21.728Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T14:53:21.728Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "1990-03-16",
+  "address": "Ahmed ",
+  "gender": "1"
+}
+2024-03-22T14:53:21.729Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T14:53:25.479Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:53:25.480Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T14:53:25.479Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:54:46.230Z info: Synced db.
+2024-03-22T14:54:46.239Z info: 🚀 API Server running on port 3300
+2024-03-22T14:54:46.240Z info: 🔌 Socket Server running on 3301
+2024-03-22T14:54:58.337Z info: {}
+2024-03-22T14:54:58.365Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T14:54:58.365Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T14:54:58.365Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "1990-03-16",
+  "address": "Ahmed ",
+  "gender": "1"
+}
+2024-03-22T14:54:58.365Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T14:55:00.866Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:55:00.866Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T14:55:00.866Z info: Validation Failure, Date of birth should be in this format [mm/dd/yyyy]
+2024-03-22T14:56:48.148Z info: Synced db.
+2024-03-22T14:56:48.159Z info: 🚀 API Server running on port 3300
+2024-03-22T14:56:48.160Z info: 🔌 Socket Server running on 3301
+2024-03-22T14:57:37.268Z info: Synced db.
+2024-03-22T14:57:37.274Z info: 🚀 API Server running on port 3300
+2024-03-22T14:57:37.275Z info: 🔌 Socket Server running on 3301
+2024-03-22T14:58:48.200Z info: Synced db.
+2024-03-22T14:58:48.210Z info: 🚀 API Server running on port 3300
+2024-03-22T14:58:48.211Z info: 🔌 Socket Server running on 3301
+2024-03-22T14:58:57.813Z info: [Error] Invalid Date of Birth. DOB must match format MM/DD/YYYY
+2024-03-22T14:59:12.459Z info: [Error] Invalid Date of Birth. DOB must match format MM/DD/YYYY
+2024-03-22T14:59:27.480Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T14:59:27.480Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T14:59:27.480Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Osekhuemen",
+  "mobile_num": "08061372146",
+  "bvn": "22232883422",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "03/16/1990",
+  "address": "Ahmed ",
+  "gender": "1"
+}
+2024-03-22T14:59:27.481Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T14:59:30.807Z info: Success
+2024-03-22T14:59:30.808Z info: Response from GTBank for virtual account:Kenneth Osekhuemen
+2024-03-22T14:59:30.807Z info: Success
+2024-03-22T14:59:30.826Z info: Validation error
+2024-03-22T15:00:51.160Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T15:00:51.161Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T15:00:51.161Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Imadojemun",
+  "mobile_num": "07051119073",
+  "bvn": "22264831628",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "03/16/1990",
+  "address": "Ahmed street, Garki, Abuja",
+  "gender": "1"
+}
+2024-03-22T15:00:51.161Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T15:00:59.571Z info: Success
+2024-03-22T15:00:59.572Z info: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T15:00:59.571Z info: Success
+2024-03-22T15:00:59.575Z info: Validation error
+2024-03-22T15:15:11.175Z info: Synced db.
+2024-03-22T15:15:11.182Z info: 🚀 API Server running on port 3300
+2024-03-22T15:15:11.182Z info: 🔌 Socket Server running on 3301
+2024-03-22T15:15:23.030Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T15:15:23.031Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T15:15:23.031Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Imadojemun",
+  "mobile_num": "07051119073",
+  "bvn": "22264831628",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "03/16/1990",
+  "address": "Ahmed street, Garki, Abuja",
+  "gender": "1"
+}
+2024-03-22T15:15:23.031Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T15:15:25.675Z info: Cannot read property 'data' of undefined
+2024-03-22T15:15:43.721Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T15:15:43.721Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T15:15:43.721Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Imadojemun",
+  "mobile_num": "07051119073",
+  "bvn": "22264831628",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "03/16/1990",
+  "address": "Ahmed street, Garki, Abuja",
+  "gender": "1"
+}
+2024-03-22T15:15:43.721Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T15:15:45.790Z info: Cannot read property 'data' of undefined
+2024-03-22T15:18:52.047Z info: Synced db.
+2024-03-22T15:18:52.058Z info: 🚀 API Server running on port 3300
+2024-03-22T15:18:52.058Z info: 🔌 Socket Server running on 3301
+2024-03-22T15:19:31.234Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T15:19:31.234Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T15:19:31.235Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Imadojemun",
+  "mobile_num": "07051119073",
+  "bvn": "22264831628",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "03/16/1990",
+  "address": "Ahmed street, Garki, Abuja",
+  "gender": "1"
+}
+2024-03-22T15:19:31.235Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T15:19:35.335Z info: Success
+2024-03-22T15:19:35.335Z info: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T15:19:35.335Z info: Success
+2024-03-22T15:19:35.351Z info: Validation error
+2024-03-22T15:21:34.973Z info: [Error] Invalid Date of Birth. DOB must match format MM/DD/YYYY
+2024-03-22T15:21:44.284Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T15:21:44.284Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T15:21:44.284Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Imadojemun",
+  "mobile_num": "07051119073",
+  "bvn": "12343211654",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "10/30/1990",
+  "address": "22 Kota street, UK",
+  "gender": "1"
+}
+2024-03-22T15:21:44.284Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T15:21:45.894Z info: Validation Failure, invalid BVN
+2024-03-22T15:21:45.894Z info: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T15:21:45.894Z info: Validation Failure, invalid BVN
+2024-03-22T15:22:02.281Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T15:22:02.282Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T15:22:02.282Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Imadojemun",
+  "mobile_num": "07051119073",
+  "bvn": "22264831628",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "03/16/1990",
+  "address": "Ahmed street, Garki",
+  "gender": "1"
+}
+2024-03-22T15:22:02.282Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T15:22:04.117Z info: Success
+2024-03-22T15:22:04.117Z info: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T15:22:04.117Z info: Success
+2024-03-22T15:22:04.128Z info: Validation error
+2024-03-22T15:25:05.924Z info: Synced db.
+2024-03-22T15:25:05.933Z info: 🚀 API Server running on port 3300
+2024-03-22T15:25:05.934Z info: 🔌 Socket Server running on 3301
+2024-03-22T15:25:20.966Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T15:25:20.966Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T15:25:20.967Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Imadojemun",
+  "mobile_num": "07051119073",
+  "bvn": "22264831628",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "03/16/1990",
+  "address": "Ahmed street, Garki",
+  "gender": "1"
+}
+2024-03-22T15:25:20.967Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T15:25:24.214Z info: Success
+2024-03-22T15:25:24.214Z info: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T15:25:24.214Z info: Success
+2024-03-22T15:25:24.231Z info: Validation error
+2024-03-22T15:28:24.859Z info: Synced db.
+2024-03-22T15:28:24.867Z info: 🚀 API Server running on port 3300
+2024-03-22T15:28:24.868Z info: 🔌 Socket Server running on 3301
+2024-03-22T15:28:59.360Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T15:28:59.361Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T15:28:59.361Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Imadojemun",
+  "mobile_num": "07051119073",
+  "bvn": "22264831628",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "03/16/1990",
+  "address": "Ahmed street, Garki",
+  "gender": "1"
+}
+2024-03-22T15:28:59.361Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T15:29:05.050Z info: Success
+2024-03-22T15:29:05.051Z info: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T15:29:05.050Z info: Success
+2024-03-22T15:29:05.069Z info: Validation error
+2024-03-22T15:32:48.290Z info: undefined
+2024-03-22T15:32:48.301Z info: undefined
+2024-03-22T15:32:48.302Z info: undefined
+2024-03-22T15:32:58.114Z info: undefined
+2024-03-22T15:32:58.115Z info: undefined
+2024-03-22T15:32:58.115Z info: undefined
+2024-03-22T15:32:58.115Z info: undefined
+2024-03-22T15:33:03.207Z info: undefined
+2024-03-22T15:33:03.207Z info: undefined
+2024-03-22T15:33:03.228Z info: undefined
+2024-03-22T15:39:04.552Z info: Synced db.
+2024-03-22T15:39:04.560Z info: 🚀 API Server running on port 3300
+2024-03-22T15:39:04.561Z info: 🔌 Socket Server running on 3301
+2024-03-22T15:39:07.396Z info: sending request to GTBank Squadco for virtual account
+2024-03-22T15:39:07.396Z info: {
+  "Authorization": "Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1",
+  "Content-Type": "application/json"
+}
+2024-03-22T15:39:07.396Z info: {
+  "customer_identifier": "CPL-PWT-44564323",
+  "first_name": "Kenneth",
+  "last_name": "Imadojemun",
+  "mobile_num": "07051119073",
+  "bvn": "22264831628",
+  "beneficiary_account": "0150776434",
+  "email": "test@gmail.com",
+  "dob": "03/16/1990",
+  "address": "Ahmed street, Garki",
+  "gender": "1"
+}
+2024-03-22T15:39:07.396Z info: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T15:39:11.309Z info: Success
+2024-03-22T15:39:11.310Z info: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T15:39:11.310Z info: {
+  "first_name": "Kenneth",
+  "last_name": "osekhuemen",
+  "bank_code": "058",
+  "virtual_account_number": "8876495146",
+  "beneficiary_account": "0150776434",
+  "customer_identifier": "CPL-PWT-44564323",
+  "created_at": "2024-03-21T16:14:46.978Z",
+  "updated_at": "2024-03-21T16:14:46.978Z"
+}
+2024-03-22T15:39:11.332Z info: Validation error
+{"level":"info","message":"Synced db.","timestamp":"2024-03-22T15:50:22.948Z"}
+{"level":"info","message":"🚀 API Server running on port 3300","timestamp":"2024-03-22T15:50:22.955Z"}
+{"level":"info","message":"🔌 Socket Server running on 3301","timestamp":"2024-03-22T15:50:22.955Z"}
+{"level":"info","message":"sending request to GTBank Squadco for virtual account","timestamp":"2024-03-22T15:50:46.650Z"}
+{"level":"info","message":{"Authorization":"Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1","Content-Type":"application/json"},"timestamp":"2024-03-22T15:50:46.650Z"}
+{"level":"info","message":{"address":"Ahmed street, Garki","beneficiary_account":"0150776434","bvn":"22264831628","customer_identifier":"CPL-PWT-44564323","dob":"03/16/1990","email":"test@gmail.com","first_name":"Kenneth","gender":"1","last_name":"Imadojemun","mobile_num":"07051119073"},"timestamp":"2024-03-22T15:50:46.650Z"}
+{"level":"info","message":"https://sandbox-api-d.squadco.com/virtual-account","timestamp":"2024-03-22T15:50:46.651Z"}
+{"data":{"bank_code":"058","beneficiary_account":"0150776434","created_at":"2024-03-21T16:14:46.978Z","customer_identifier":"CPL-PWT-44564323","first_name":"Kenneth","last_name":"osekhuemen","updated_at":"2024-03-21T16:14:46.978Z","virtual_account_number":"8876495146"},"level":"info","message":"Success","status":200,"success":true,"timestamp":"2024-03-22T15:50:49.714Z"}
+{"level":"info","message":"Response from GTBank for virtual account:Kenneth Imadojemun","timestamp":"2024-03-22T15:50:49.714Z"}
+{"level":"info","message":{"bank_code":"058","beneficiary_account":"0150776434","created_at":"2024-03-21T16:14:46.978Z","customer_identifier":"CPL-PWT-44564323","first_name":"Kenneth","last_name":"osekhuemen","updated_at":"2024-03-21T16:14:46.978Z","virtual_account_number":"8876495146"},"timestamp":"2024-03-22T15:50:49.714Z"}
+{"errors":[{"instance":{"ChannelId":1,"ProviderId":1,"accountName":"Kenneth Imadojemun","accountNumber":"8876495146","bvn":"22264831628","createdAt":"2024-03-22T15:50:49.717Z","id":null,"phoneNumber":"07051119073","received":0,"settlementAccount":"0150776434","status":"active","tid":"44564323","updatedAt":"2024-03-22T15:50:49.717Z","uuid":"8fdea289-a513-45c2-8ba8-be2506f693b3"},"message":"accountNumber must be unique","origin":"DB","path":"accountNumber","type":"unique violation","validatorArgs":[],"validatorKey":"not_unique","validatorName":null,"value":"8876495146"}],"fields":{"accountNumber":"8876495146"},"level":"info","name":"SequelizeUniqueConstraintError","original":{"code":"ER_DUP_ENTRY","errno":1062,"parameters":["8fdea289-a513-45c2-8ba8-be2506f693b3","8876495146","Kenneth Imadojemun","22264831628","07051119073",0,"0150776434","44564323","active","2024-03-22 15:50:49","2024-03-22 15:50:49",1,1],"sql":"INSERT INTO `virtual_accounts` (`id`,`uuid`,`accountNumber`,`accountName`,`bvn`,`phoneNumber`,`received`,`settlementAccount`,`tid`,`status`,`createdAt`,`updatedAt`,`ChannelId`,`ProviderId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?,?,?,?,?);","sqlMessage":"Duplicate entry '8876495146' for key 'accountNumber'","sqlState":"23000"},"parent":{"code":"ER_DUP_ENTRY","errno":1062,"parameters":["8fdea289-a513-45c2-8ba8-be2506f693b3","8876495146","Kenneth Imadojemun","22264831628","07051119073",0,"0150776434","44564323","active","2024-03-22 15:50:49","2024-03-22 15:50:49",1,1],"sql":"INSERT INTO `virtual_accounts` (`id`,`uuid`,`accountNumber`,`accountName`,`bvn`,`phoneNumber`,`received`,`settlementAccount`,`tid`,`status`,`createdAt`,`updatedAt`,`ChannelId`,`ProviderId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?,?,?,?,?);","sqlMessage":"Duplicate entry '8876495146' for key 'accountNumber'","sqlState":"23000"},"sql":"INSERT INTO `virtual_accounts` (`id`,`uuid`,`accountNumber`,`accountName`,`bvn`,`phoneNumber`,`received`,`settlementAccount`,`tid`,`status`,`createdAt`,`updatedAt`,`ChannelId`,`ProviderId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?,?,?,?,?);","timestamp":"2024-03-22T15:50:49.735Z"}
+2024-03-22T15:55:14.679Z [info]: Failed to sync db: Can't create table `payant_merchant_db`.`transaction_notifications` (errno: 135 "No more room in record file")
+2024-03-22T15:55:46.433Z [info]: Synced db.
+2024-03-22T15:55:46.440Z [info]: 🚀 API Server running on port 3300
+2024-03-22T15:55:46.440Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T15:57:54.807Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T15:57:54.808Z [info]: inspect is not defined
+2024-03-22T16:00:17.527Z [info]: Failed to sync db: Error writing file './payant_merchant_db/#sql-alter-722-300.frm' (Errcode: 28 "No space left on device")
+2024-03-22T16:00:49.945Z [info]: Synced db.
+2024-03-22T16:00:49.953Z [info]: 🚀 API Server running on port 3300
+2024-03-22T16:00:49.954Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T16:04:50.448Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T16:04:50.448Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T16:04:50.451Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1990'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T16:04:50.452Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T16:05:03.912Z [info]: Success
+2024-03-22T16:05:03.913Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T16:05:03.913Z [info]: {
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'osekhuemen'[39m,
+  bank_code: [32m'058'[39m,
+  virtual_account_number: [32m'8876495146'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  created_at: [32m'2024-03-21T16:14:46.978Z'[39m,
+  updated_at: [32m'2024-03-21T16:14:46.978Z'[39m
+}
+2024-03-22T16:05:03.936Z [info]: Validation error
+2024-03-22T16:13:26.922Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:13:40.057Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:13:52.296Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:14:04.824Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:14:17.400Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:14:29.903Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:14:42.466Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:14:55.110Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:15:13.545Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:15:26.149Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:15:38.549Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:15:51.149Z [info]: Failed to sync db: Too many keys specified; max 64 keys allowed
+2024-03-22T16:16:12.788Z [info]: Synced db.
+2024-03-22T16:16:12.796Z [info]: 🚀 API Server running on port 3300
+2024-03-22T16:16:12.796Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T16:17:08.962Z [info]: [Error] Provider name already exist
+2024-03-22T16:18:20.595Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T16:18:20.595Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T16:18:20.599Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1990'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T16:18:20.599Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T16:18:23.622Z [info]: Success
+2024-03-22T16:18:23.622Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T16:18:23.622Z [info]: Success
+2024-03-22T16:18:42.670Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T16:18:42.670Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T16:18:42.671Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1990'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T16:18:42.672Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T16:18:44.399Z [info]: Success
+2024-03-22T16:18:44.399Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T16:18:44.399Z [info]: Success
+2024-03-22T16:19:03.567Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T16:19:03.567Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T16:19:03.567Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1991'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T16:19:03.567Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T16:19:06.487Z [info]: Success
+2024-03-22T16:19:06.487Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T16:19:06.487Z [info]: Success
+2024-03-22T16:19:13.391Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T16:19:13.392Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T16:19:13.392Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1990'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T16:19:13.392Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T16:19:19.137Z [info]: Success
+2024-03-22T16:19:19.137Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T16:19:19.137Z [info]: Success
+2024-03-22T16:19:50.689Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T16:19:50.690Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T16:19:50.690Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1990'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T16:19:50.690Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T16:19:54.449Z [info]: Success
+2024-03-22T16:19:54.450Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T16:19:54.449Z [info]: Success
+2024-03-22T16:21:48.537Z [info]: Synced db.
+2024-03-22T16:21:48.543Z [info]: 🚀 API Server running on port 3300
+2024-03-22T16:21:48.544Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T16:22:02.372Z [info]: [Error] Invalid provider
+2024-03-22T16:26:37.362Z [info]: Failed to sync db: Error writing file './payant_merchant_db/#sql-alter-722-33b.frm' (Errcode: 28 "No space left on device")
+2024-03-22T16:27:09.157Z [info]: Synced db.
+2024-03-22T16:27:09.166Z [info]: 🚀 API Server running on port 3300
+2024-03-22T16:27:09.167Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T16:27:15.451Z [info]: [Error] Invalid provider
+2024-03-22T16:32:39.109Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T16:32:39.110Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T16:32:39.113Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1990'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T16:32:39.114Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T16:32:45.395Z [info]: Success
+2024-03-22T16:32:45.397Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T16:32:45.395Z [info]: Success
+2024-03-22T17:14:05.405Z [info]: Synced db.
+2024-03-22T17:14:05.413Z [info]: 🚀 API Server running on port 3300
+2024-03-22T17:14:05.415Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T17:17:11.226Z [info]: Synced db.
+2024-03-22T17:17:11.234Z [info]: 🚀 API Server running on port 3300
+2024-03-22T17:17:11.235Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T17:18:03.454Z [info]: Failed to sync db: Error writing file './payant_merchant_db/#sql-alter-722-34c.frm' (Errcode: 28 "No space left on device")
+2024-03-22T17:18:36.385Z [info]: Synced db.
+2024-03-22T17:18:36.397Z [info]: 🚀 API Server running on port 3300
+2024-03-22T17:18:36.398Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T17:18:43.105Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T17:18:43.105Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T17:18:43.108Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1990'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T17:18:43.109Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T17:18:46.188Z [info]: Success
+2024-03-22T17:18:46.189Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T17:18:46.188Z [info]: Success
+2024-03-22T17:50:04.086Z [info]: Synced db.
+2024-03-22T17:50:04.096Z [info]: 🚀 API Server running on port 3300
+2024-03-22T17:50:04.097Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T17:51:26.027Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T17:51:26.027Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T17:51:26.030Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1990'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T17:51:26.031Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T17:51:31.173Z [info]: Success
+2024-03-22T17:51:31.173Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T17:51:31.173Z [info]: Success
+2024-03-22T17:53:04.016Z [info]: Synced db.
+2024-03-22T17:53:04.027Z [info]: 🚀 API Server running on port 3300
+2024-03-22T17:53:04.028Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T17:53:21.742Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T17:53:21.743Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T17:53:21.743Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1990'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T17:53:21.744Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T17:53:26.877Z [info]: Success
+2024-03-22T17:53:26.878Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T17:53:26.877Z [info]: Success
+2024-03-22T18:09:57.212Z [info]: Synced db.
+2024-03-22T18:09:57.218Z [info]: 🚀 API Server running on port 3300
+2024-03-22T18:09:57.219Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T18:10:02.154Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T18:10:02.154Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T18:10:02.157Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1990'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T18:10:02.157Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+undefined [undefined]: {
+  status: [33m200[39m,
+  success: [33mtrue[39m,
+  message: [32m'Success'[39m,
+  data: {
+    first_name: [32m'Kenneth'[39m,
+    last_name: [32m'osekhuemen'[39m,
+    bank_code: [32m'058'[39m,
+    virtual_account_number: [32m'8876495146'[39m,
+    beneficiary_account: [32m'0150776434'[39m,
+    customer_identifier: [32m'CPL-PWT-44564323'[39m,
+    created_at: [32m'2024-03-21T16:14:46.978Z'[39m,
+    updated_at: [32m'2024-03-21T16:14:46.978Z'[39m
+  },
+  [[32mSymbol(level)[39m]: [32m'info'[39m,
+  [[32mSymbol(message)[39m]: [32m'{"data":{"bank_code":"058","beneficiary_account":"0150776434","created_at":"2024-03-21T16:14:46.978Z","customer_identifier":"CPL-PWT-44564323","first_name":"Kenneth","last_name":"osekhuemen","updated_at":"2024-03-21T16:14:46.978Z","virtual_account_number":"8876495146"},"level":"info","message":"Success","status":200,"success":true,"timestamp":"2024-03-22T18:10:06.361Z"}'[39m
+}
+2024-03-22T18:10:06.361Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+undefined [undefined]: {
+  status: [33m200[39m,
+  success: [33mtrue[39m,
+  message: [32m'Success'[39m,
+  data: {
+    first_name: [32m'Kenneth'[39m,
+    last_name: [32m'osekhuemen'[39m,
+    bank_code: [32m'058'[39m,
+    virtual_account_number: [32m'8876495146'[39m,
+    beneficiary_account: [32m'0150776434'[39m,
+    customer_identifier: [32m'CPL-PWT-44564323'[39m,
+    created_at: [32m'2024-03-21T16:14:46.978Z'[39m,
+    updated_at: [32m'2024-03-21T16:14:46.978Z'[39m
+  },
+  [[32mSymbol(level)[39m]: [32m'info'[39m,
+  [[32mSymbol(message)[39m]: [32m'{"data":{"bank_code":"058","beneficiary_account":"0150776434","created_at":"2024-03-21T16:14:46.978Z","customer_identifier":"CPL-PWT-44564323","first_name":"Kenneth","last_name":"osekhuemen","updated_at":"2024-03-21T16:14:46.978Z","virtual_account_number":"8876495146"},"level":"info","message":"Success","status":200,"success":true,"timestamp":"2024-03-22T18:10:06.362Z"}'[39m
+}
+2024-03-22T18:25:01.659Z [info]: Synced db.
+2024-03-22T18:25:01.666Z [info]: 🚀 API Server running on port 3300
+2024-03-22T18:25:01.666Z [info]: 🔌 Socket Server running on 3301
+2024-03-22T18:36:29.152Z [info]: sending request to GTBank Squadco for virtual account
+2024-03-22T18:36:29.153Z [info]: {
+  Authorization: [32m'Bearer sandbox_sk_b43af8744aa3554425fb9c60e9e0117c51f6671856d1'[39m,
+  [32m'Content-Type'[39m: [32m'application/json'[39m
+}
+2024-03-22T18:36:29.156Z [info]: {
+  customer_identifier: [32m'CPL-PWT-44564323'[39m,
+  first_name: [32m'Kenneth'[39m,
+  last_name: [32m'Imadojemun'[39m,
+  mobile_num: [32m'07051119073'[39m,
+  bvn: [32m'22264831628'[39m,
+  beneficiary_account: [32m'0150776434'[39m,
+  email: [32m'test@gmail.com'[39m,
+  dob: [32m'03/16/1990'[39m,
+  address: [32m'Ahmed street, Garki'[39m,
+  gender: [32m'1'[39m
+}
+2024-03-22T18:36:29.156Z [info]: https://sandbox-api-d.squadco.com/virtual-account
+2024-03-22T18:36:33.776Z [info]: {
+  response: {
+    status: [33m200[39m,
+    success: [33mtrue[39m,
+    message: [32m'Success'[39m,
+    data: {
+      first_name: [32m'Kenneth'[39m,
+      last_name: [32m'osekhuemen'[39m,
+      bank_code: [32m'058'[39m,
+      virtual_account_number: [32m'8876495146'[39m,
+      beneficiary_account: [32m'0150776434'[39m,
+      customer_identifier: [32m'CPL-PWT-44564323'[39m,
+      created_at: [32m'2024-03-21T16:14:46.978Z'[39m,
+      updated_at: [32m'2024-03-21T16:14:46.978Z'[39m
+    }
+  }
+}
+2024-03-22T18:36:33.776Z [info]: Response from GTBank for virtual account:Kenneth Imadojemun
+2024-03-22T18:36:33.776Z [info]: {
+  response: {
+    status: [33m200[39m,
+    success: [33mtrue[39m,
+    message: [32m'Success'[39m,
+    data: {
+      first_name: [32m'Kenneth'[39m,
+      last_name: [32m'osekhuemen'[39m,
+      bank_code: [32m'058'[39m,
+      virtual_account_number: [32m'8876495146'[39m,
+      beneficiary_account: [32m'0150776434'[39m,
+      customer_identifier: [32m'CPL-PWT-44564323'[39m,
+      created_at: [32m'2024-03-21T16:14:46.978Z'[39m,
+      updated_at: [32m'2024-03-21T16:14:46.978Z'[39m
+    }
+  }
+}

@@ -2,6 +2,8 @@
 const dotenv = require('dotenv');
 const { respondSuccess, respondError, checkValidation } = require('../utils/common.utils');
 const Provider = require('../models/provider.model');
+const logger = require('../utils/logger.utils');
+
 dotenv.config();
 
 
@@ -21,7 +23,7 @@ class ProviderController {
             return respondSuccess(res, "provider created successfully");
 
         } catch (e) {
-            console.log(e)
+            logger.info(e)
             return respondError(res, e.message);
         }
     };
@@ -43,7 +45,7 @@ class ProviderController {
             return respondSuccess(res, "Provider updated successfully");
 
         } catch (e) {
-            console.log(e)
+            logger.info(e)
             return respondError(res, e.message);
         }
     };

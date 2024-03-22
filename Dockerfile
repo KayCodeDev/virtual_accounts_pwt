@@ -8,6 +8,7 @@ RUN npm install
 
 COPY src/ ./src/
 COPY .env .env
+COPY logs/ ./logs/
 
 EXPOSE 3300
 EXPOSE 3301
