@@ -26,14 +26,14 @@ const Provider = sequelize.define('Provider', {
     },
     credentials: {
         type: DataTypes.JSON,
-        get() {
-            const credentialsString = this.getDataValue('credentials');
-            try {
-                return credentialsString ? JSON.parse(credentialsString) : null;
-            } catch (error) {
-                return null;
-            }
-        },
+        // get() {
+        //     const credentialsString = this.getDataValue('credentials');
+        //     try {
+        //         return credentialsString ? JSON.parse(credentialsString) : null;
+        //     } catch (error) {
+        //         return null;
+        //     }
+        // },
     },
     status: {
         type: DataTypes.ENUM('active', 'inactive'),
