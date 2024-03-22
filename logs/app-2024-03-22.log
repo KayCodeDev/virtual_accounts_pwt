@@ -1325,3 +1325,6 @@ undefined [undefined]: {
     }
   }
 }
+2024-03-22T19:14:55.537Z [info]: Synced db.
+2024-03-22T19:14:55.545Z [info]: 🚀 API Server running on port 3300
+2024-03-22T19:14:55.546Z [info]: 🔌 Socket Server running on 3301
