@@ -12,7 +12,8 @@ class SocketServer {
             logger.info('TCP client connected:', socket.remoteAddress, socket.remotePort);
             socket.on("data", async (data) => {
                 const message = data.toString();
-                logger.info('Received TCP data:', message);
+                logger.info('Received TCP data:');
+                logger.info(message);
 
                 try {
                     const jsonData = JSON.parse(message);
@@ -31,31 +32,33 @@ class SocketServer {
                         }
                     }
                 } catch (e) {
-                    logger.info('Error parsing JSON data:', e.message);
+                    logger.info('Error parsing JSON data:');
+                    logger.info(e.message);
+                    console.log(e);
                     socket.end();
                 }
             });
 
             socket.on("end", () => {
-                logger.info('TCP client disconnected:', socket.remoteAddress, socket.remotePort);
+                logger.info(`TCP client disconnected: ${socket.remoteAddress} ${socket.remotePort}`);
                 const key = `${socket.remoteAddress}:${socket.remotePort}`;
                 socketManager.removeSocket(key);
             });
 
             socket.on("close", () => {
-                logger.info('TCP client closed:', socket.remoteAddress, socket.remotePort);
+                logger.info(`TCP client closed: ${socket.remoteAddress} ${socket.remotePort}`);
                 const key = `${socket.remoteAddress}:${socket.remotePort}`;
                 socketManager.removeSocket(key);
             });
 
             socket.on("timeout", () => {
-                logger.info('TCP client timeout:', socket.remoteAddress, socket.remotePort);
+                logger.info(`TCP client timeout: ${socket.remoteAddress} ${socket.remotePort}`);
                 const key = `${socket.remoteAddress}:${socket.remotePort}`;
                 socketManager.removeSocket(key);
             });
 
             socket.on("error", (err) => {
-                logger.info('TCP client Error:', socket.remoteAddress, socket.remotePort, err);
+                logger.info(`TCP client Error: ${socket.remoteAddress} ${socket.remotePort}`);
                 const key = `${socket.remoteAddress}:${socket.remotePort}`;
                 socketManager.removeSocket(key);
             });
