@@ -1,7 +1,6 @@
 const { body } = require('express-validator');
 const Provider = require('../../models/provider.model');
 const Channel = require('../../models/channel.model');
-const logger = require('../../utils/logger.utils');
 const { isValidEmail, isValidDate } = require('../../utils/common.utils');
 
 

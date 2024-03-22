@@ -253,65 +253,65 @@ class VirtualAccountController {
         checkValidation(req);
         let { provider: providerCode, accountName, bvn, phoneNumber, settlementAccount, tid } = req.body;
 
-        try {
-            let account = await VirtualAccount.findOne({
-                include: Provider,
-                where: {
-                    [Op.and]: [
-                        { tid },
-                        {
-                            '$Provider.code$': providerCode,
-                        },
-                    ],
-                },
-            });
+        // try {
+        let account = await VirtualAccount.findOne({
+            include: Provider,
+            where: {
+                [Op.and]: [
+                    { tid },
+                    {
+                        '$Provider.code$': providerCode,
+                    },
+                ],
+            },
+        });
 
-            const provider = await Provider.findOne({ where: { code: providerCode } });
+        const provider = await Provider.findOne({ where: { code: providerCode } });
 
-            const channel = await Channel.findOne({
-                where: { channelType: "merchant" },
-                include: {
-                    model: SettlementAccount,
-                    limit: 1,
-                    where: { ProviderId: provider.id }
-                }
-            });
-
-            if (!settlementAccount) {
-                if (channel.SettlementAccounts.length > 0) {
-                    settlementAccount = channel.SettlementAccounts[0].accountNumber;
-                } else {
-                    return respondError(res, "Settlement account must be provided");
-                }
+        const channel = await Channel.findOne({
+            where: { channelType: "merchant" },
+            include: {
+                model: SettlementAccount,
+                limit: 1,
+                where: { ProviderId: provider.id }
             }
+        });
 
-            const response = await switchProviderCall(provider, channel, tid, accountName, bvn, phoneNumber, settlementAccount, req);
-
-            if (response.error) {
-                return respondError(res, response.message);
-            }
-
-            if (account) {
-                account.update({ accountNumber: response.account, accountName, settlementAccount, tid });
+        if (!settlementAccount) {
+            if (channel.SettlementAccounts.length > 0) {
+                settlementAccount = channel.SettlementAccounts[0].accountNumber;
             } else {
-                account = await VirtualAccount.create({
-                    accountNumber: response.account,
-                    accountName,
-                    bvn,
-                    phoneNumber,
-                    settlementAccount,
-                    tid,
-                    ProviderId: provider.id,
-                    ChannelId: channel.id
-                })
+                return respondError(res, "Settlement account must be provided");
             }
-
-            return respondSuccess(res, "Virtual account created successfully", { accountNumber: account.accountNumber, accountName: account.accountName, bvn: account.bvn, phoneNumber: account.phoneNumber, tid: account.tid, Provider: { name: provider.name } });
-
-        } catch (e) {
-            logger.info(e)
-            return respondError(res, e.message);
         }
+
+        const response = await switchProviderCall(provider, channel, tid, accountName, bvn, phoneNumber, settlementAccount, req);
+
+        if (response.error) {
+            return respondError(res, response.message);
+        }
+
+        if (account) {
+            account.update({ accountNumber: response.account, accountName, settlementAccount, tid });
+        } else {
+            account = await VirtualAccount.create({
+                accountNumber: response.account,
+                accountName,
+                bvn,
+                phoneNumber,
+                settlementAccount,
+                tid,
+                ProviderId: provider.id,
+                ChannelId: channel.id
+            })
+        }
+
+        return respondSuccess(res, "Virtual account created successfully", { accountNumber: account.accountNumber, accountName: account.accountName, bvn: account.bvn, phoneNumber: account.phoneNumber, tid: account.tid, Provider: { name: provider.name } });
+
+        // } catch (e) {
+        //     logger.info(e)
+        //     return respondError(res, e.message);
+        // }
     }
 
     addVirtualAccountManually = async (req, res, next) => {
