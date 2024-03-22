@@ -73,7 +73,7 @@ class GlobusService {
         logger.info("sending request to Globus for Generate token");
         logger.info(url)
         const result = await common.sendPost(url, formData, { headers });
-        const response = result.data;
+        const response = result;
         logger.info("response from Globus for Generate token");
         logger.info({ response: response });
 
