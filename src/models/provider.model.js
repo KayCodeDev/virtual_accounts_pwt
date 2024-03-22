@@ -31,7 +31,6 @@ const Provider = sequelize.define('Provider', {
             try {
                 return credentialsString ? JSON.parse(credentialsString) : null;
             } catch (error) {
-                logger.info('Error parsing credentials JSON:', error);
                 return null;
             }
         },
