@@ -29,20 +29,24 @@ exports.addPosVARequest = [
         .withMessage('Invalid phone number'),
     body('email')
         .custom(async (value, { req }) => {
-            if (["gtbank_agency"].includes(req.body.provider) && (value == undefined || value == null || value == "")) {
-                throw new Error('Email is required');
-            }
-            if (!await isValidEmail(value)) {
-                throw new Error('Invalid email');
+            if (["gtbank_agency"].includes(req.body.provider)) {
+                if (value == undefined || value == null || value == "") {
+                    throw new Error('Email is required');
+                }
+                if (!await isValidEmail(value)) {
+                    throw new Error('Invalid email');
+                }
             }
         }),
     body('dob')
         .custom(async (value, { req }) => {
-            if (["gtbank_agency"].includes(req.body.provider) && (value == undefined || value == null || value == "")) {
-                throw new Error('Date of birth is required');
-            }
-            if (!await isValidDate(value, "MM/DD/YYYY")) {
-                throw new Error('Invalid Date of Birth. DOB must match format MM/DD/YYYY');
+            if (["gtbank_agency"].includes(req.body.provider)) {
+                if (value == undefined || value == null || value == "") {
+                    throw new Error('Date of birth is required');
+                }
+                if (!await isValidDate(value, "MM/DD/YYYY")) {
+                    throw new Error('Invalid Date of Birth. DOB must match format MM/DD/YYYY');
+                }
             }
         }),
     body('address')
@@ -104,20 +108,24 @@ exports.addVARequest = [
         .withMessage('Invalid phone number'),
     body('email')
         .custom(async (value, { req }) => {
-            if (["gtbank_agency"].includes(req.body.provider) && (value == undefined || value == null || value == "")) {
-                throw new Error('Email is required');
-            }
-            if (!await isValidEmail(value)) {
-                throw new Error('Invalid email');
+            if (["gtbank_agency"].includes(req.body.provider)) {
+                if (value == undefined || value == null || value == "") {
+                    throw new Error('Email is required');
+                }
+                if (!await isValidEmail(value)) {
+                    throw new Error('Invalid email');
+                }
             }
         }),
     body('dob')
         .custom(async (value, { req }) => {
-            if (["gtbank_agency"].includes(req.body.provider) && (value == undefined || value == null || value == "")) {
-                throw new Error('Date of birth is required');
-            }
-            if (!await isValidDate(value, "MM/DD/YYYY") == false) {
-                throw new Error('Invalid Date of Birth. DOB must match format MM/DD/YYYY');
+            if (["gtbank_agency"].includes(req.body.provider)) {
+                if (value == undefined || value == null || value == "") {
+                    throw new Error('Date of birth is required');
+                }
+                if (!await isValidDate(value, "MM/DD/YYYY")) {
+                    throw new Error('Invalid Date of Birth. DOB must match format MM/DD/YYYY');
+                }
             }
         }),
     body('address')
