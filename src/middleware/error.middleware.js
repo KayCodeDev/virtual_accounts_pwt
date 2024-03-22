@@ -1,7 +1,7 @@
 const logger = require('../utils/logger.utils');
 
 function errorMiddleware(error, req, res, next) {
-    logger.info(error);
+    console.info(error);
     let { status = 500, message, data } = error;
 
     logger.info(`[Error] ${message}`);
