@@ -16,9 +16,9 @@ router.get('/transactions/:account', auth(), awaitHandlerFactory(virtualAccountC
 
 router.post('/account/add', auth(), addVARequest, awaitHandlerFactory(virtualAccountController.addVirtualAccount));
 
-router.post('/notifcation/gtbank', squadcoNotificationRequest, awaitHandlerFactory(notificationController.fromSquadco));
-router.post('/notifcation/globus', globusNotificationRequest, awaitHandlerFactory(notificationController.fromGlobus));
-router.post('/notifcation/agency', auth('AGENCY'), agencyNotificationRequest, awaitHandlerFactory(notificationController.fromAgency));
+router.post('/notification/gtbank', squadcoNotificationRequest, awaitHandlerFactory(notificationController.fromSquadco));
+router.post('/notification/globus', globusNotificationRequest, awaitHandlerFactory(notificationController.fromGlobus));
+router.post('/notification/agency', auth('AGENCY'), agencyNotificationRequest, awaitHandlerFactory(notificationController.fromAgency));
 
 router.post('/account/register/:provider', auth(), registerVARequest, awaitHandlerFactory(virtualAccountController.registerVirtualAccount));
 
