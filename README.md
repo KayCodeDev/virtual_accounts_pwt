@@ -1,4 +1,5 @@
 # Virtual Bank Account API for PWT
+An ExpressJs NodeJs API service for virtual account generation and deposit alert services for fintech wallet services
 
 ### Author
 # Kenneth I
