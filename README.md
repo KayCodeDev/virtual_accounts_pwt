@@ -48,6 +48,9 @@ npm start
 
 # Run the server locally in dev mode
 npm run dev
+
+# Run test
+jest
 ```
 
 **Enjoy :)**
