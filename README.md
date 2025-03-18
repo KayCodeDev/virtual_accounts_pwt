@@ -1,7 +1,7 @@
-# Payant Merchant API for PWT
+# Virtual Bank Account API for PWT
 
 ### Author
-# Kenneth O
+# Kenneth I
 
 ### Tech
 
@@ -27,7 +27,7 @@ This project uses a number of open source projects to work properly:
 git clone [Project Repo]
 
 # Get into the directory
-cd payant_merchant
+cd virtual_accounts_pwt
 
 # Make it your own
 rm -rf .git && git init
