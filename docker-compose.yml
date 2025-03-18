@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: callphone/pwt
+    image: kayDevCode/pwt
     container_name: pwt-app
     restart: unless-stopped
     stdin_open: true
